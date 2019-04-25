@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Dashboard" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/home/dashboard.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block content %}
+	{% bootstrap_icon "print" as glyphicon_print %}
+	{% bootstrap_icon "chevron-right" as glyphicon_chevron_right %}
+	
+	{% with "Today" as day_text %}
+	{% with today as current_day %}
+		{% include "home/dashboard-day-view.html" %}
+	{% endwith %}
+	{% endwith %}
+
+	<hr/>
+
+	{% with "Tomorrow" as day_text %}
+	{% with tomorrow as current_day %}
+		{% include "home/dashboard-day-view.html" %}
+	{% endwith %}
+	{% endwith %}
+	
+	<hr/>
+	
+	<div class="row">
+		<div class="col-sm-9 page-header-left">
+			{% trans "This Week" %}
+		</div>
+		<div class="col-sm-3 page-header-right">
+			<form action="/print_week" method="POST">
+				{% csrf_token %}
+				<input type="hidden" name="date" value="{{ week.0.date.year }}-{{ week.0.date.month }}-{{ week.0.date.day }}" />
+				<button class="btn btn-primary btn-print-week" type="submit">
+					{{ glyphicon_print }} {% trans "Print" %}
+				</button>
+			</form>
+		</div>
+	</div>
+
+	<table class="table table-hover">
+		<tr>
+			<th class="col-xs-1">{% trans "Date" %}</th>
+			<th class="col-xs-3">{% trans "School" %}</th>
+			<th>{% trans "Schedule" %}</th>
+			<th class="col-xs-2 hidden-xs">{% trans "Notes" %}</th>
+		</tr>
+		{% for day in week %}
+		<tr>
+			<td>
+				<strong>
+					{{ day.date|date:"n/j" }}<br/>
+					{{ day.date|date:"D" }}
+				</strong>
+			</td>
+			{% if day.schedules %}
+				{% for schedule in day.schedules %}
+					{% if not forloop.first %}
+					<tr>
+						<td></td>
+					{% endif %}
+					<td>
+						<strong>
+						{% get_current_language as LANGUAGE_CODE %} 
+						{% if LANGUAGE_CODE == 'en' %} 
+							{{ schedule.school.name }} 
+						{% else %} 
+							{{ schedule.school.name_kanji }} 
+						{% endif %}
+						</strong><br/>
+						<span class="default-profile-marker set-data-color font-size-090" 
+							data-color="#{{ schedule.information.school_period_type.get_period_type_color }}">
+							{{ schedule.information.school_period_type.period_name }}
+						</span>	
+						<span class="visible-xs">
+							{% for event in day.events %}
+							<span class="default-profile-marker set-data-color font-size-090" 
+								data-color="#{{ event.get_event_color }}">
+								{{ event.get_event_name }}
+							</span>	
+							{% endfor %}
+						</span>
+					</td>
+					<td>
+						<div class="row">
+							{% for period in schedule.information.school_periods %}
+							{% if period.class_info %}
+							<div class="col-xs-1 week-view-section">
+								{% with period.class_info.section.school_section.is_special_needs as is_special_needs %}
+								{% with period.class_info.section.school_section.year_level as year_level %}
+								{% with period.class_info.section.section_name as section_name %}
+									{% include "section-name-base.html" %}
+								{% endwith %}
+								{% endwith %}
+								{% endwith %}
+							</div>
+							{% else %}
+							<div class="col-xs-1 week-view-section">
+								<i><span class="glyphicon glyphicon-star"></span></i>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</td>
+					<td class="hidden-xs">
+						{% for event in day.events %}
+						<span class="default-profile-marker set-data-color font-size-090" 
+							data-color="#{{ event.get_event_color }}">
+							{{ event.get_event_name }}
+						</span>	
+						{% endfor %}
+					</td>
+				</tr>
+				{% endfor %}
+			{% else %}
+				<td colspan="2" class="vertical-center">
+					<i>{% trans "There are no scheduled classes for this day." %}</i>
+				</td>
+				<td>
+					{% for event in day.events %}
+					<span class="default-profile-marker set-data-color font-size-090" 
+						data-color="#{{ event.get_event_color }}">
+						{{ event.get_event_name }}
+					</span>	
+					{% endfor %}
+				</td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+{% endblock content %}

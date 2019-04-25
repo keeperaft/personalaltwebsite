@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Generic Activities" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/lessons/courses.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block content %}
+	{% bootstrap_icon "plus" as glyphicon_plus %}
+	{% bootstrap_icon "pencil" as glyphicon_pencil %}
+	{% bootstrap_icon "chevron-right" as glyphicon_chevron_right %}
+	{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+
+	<div class="row">
+		<div class="col-sm-9 page-header-left">{% trans "Generic Activities" %}</div>
+	</div>
+	{% if all_activities %}
+		{% for activity_portion, activities in all_activities.items %}
+			<div class="row">
+				<div class="col-xs-12 page-subheader-left">
+					{{ activity_portion }} {% trans "Activities" %}
+				</div>
+			</div>
+			{% include "lessons/view-activity-table.html" %}
+		{% endfor %}
+	{% else %}
+		<div class="row">
+			<div class="col-sm-12 center-align">
+				{% trans 'There are no activities available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-generic-activity">add a new activity?</a>' %}
+			</div>
+		</div>
+	{% endif %}
+{% endblock content %}

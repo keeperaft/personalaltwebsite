@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "School Periods" %}
+{% endblock title %}
+
+{% block additional_js %}
+<script src="{% static "js/schedules/school-periods.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+	<div class="hidden">
+		<span class="delete-time-period-wrapper">
+			&nbsp;{% trans "Delete Time Period" %}
+		</span>
+		<span class="incorrect-format-wrapper">
+			{% trans "Please input both the start time and the end time in the proper format. (e.g.: 09:40, 14:35)" %}
+		</span>
+		<span class="new-time-period-wrapper">
+			{% trans "A new period has been added." %}
+		</span>
+		<span class="earlier-end-time-wrapper">
+			{% trans "The start time must be earlier than the end time. Please use the 24-hour format." %}
+		</span>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-header-left" id="school-year-name">
+			{% trans "School Periods" %}
+		</div>
+	</div>
+
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-sm-3">{% trans "School Year" %}</th>
+			<td> 
+				<select class="form-control" id="school-periods-school-year" name="school-year">
+					{% for item in all_school_years %}
+						<option value="{{ item.school_year.id }}" 
+							data-start-month="{{ item.school_year.start_date.month }}"
+							data-start-year="{{ item.school_year.start_date.year }}"
+							data-end-month="{{ item.school_year.end_date.month }}"
+							data-end-year="{{ item.school_year.end_date.year }}"
+							data-schools="{{ item.schools }}"
+							{% if school_year_id == item.school_year.id %}
+								selected="selected"
+							{% endif %}>
+							{{ item.school_year.name }}
+						</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-sm-3">{% trans "School" %}</th>
+			<td id="school-periods-school-dropdown-cell" 
+				data-selected-id="{{ school_id }}">
+				<select disabled="true" 
+					class="form-control" 
+					name="school">
+					<option>{% trans "Loading" %}</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-5">
+			<a href="/schedules/school_periods/0" id="view-school-profile-button">
+				<button class="btn btn-primary">
+					{{ glyphicon_info_sign }} {% trans "View Profiles" %}
+				</button>
+			</a>
+		</div>
+	</div>
+	<hr/>
+
+	{% include "schedules/school-periods-profile-header.html" %}
+	{% if all_periods %}
+		{% for period_profiles in all_periods %}
+			{% include "schedules/school-periods-period-view.html" %}
+		{% endfor %}
+	{% endif %}
+{% endblock content %}

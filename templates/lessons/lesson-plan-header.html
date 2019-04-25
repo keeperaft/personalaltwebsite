@@ -1,0 +1,11 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+{% bootstrap_icon "trash" as glyphicon_trash %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+
+<div class="row">
+	<div class="col-sm-12 page-header-left" id="lesson-names">
+		{% trans "Lesson Plans for " %}{{ lesson_title }}{% trans "<span class='japanese-lesson-plans'></span>" %}
+	</div>
+</div>

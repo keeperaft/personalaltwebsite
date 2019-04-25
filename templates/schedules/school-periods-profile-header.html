@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+
+{% if school_id %}
+	<div class="row">
+		<div class="col-sm-9 page-header-left" id="period-profiles">
+			{% trans "Period Profiles for " %}{{ school_name }}{% trans "<span class='japanese-period-profiles-for'></span>" %}
+		</div>
+		<div class="col-sm-3 page-header-right" id="add-profile-button">
+			<button 
+				type="button" 
+				class="btn btn-primary" 
+				data-toggle="modal" 
+				data-target="#add-period-profile" 
+				name="add-period-profile-entry-button" 
+				id="add-period-profile-entry-button">
+					{{ glyphicon_plus }} {% trans "Add Profile" %}
+			</button>
+		</div>
+	</div>
+	<br/>
+	<div class="hidden remove-me">
+		<modal-content id="add-period-profile">
+			<modal-head>
+				{% trans "Add Period Profile" %}
+			</modal-head>
+
+			<form class="modal-form" 
+				action="{% url 'schedules:add_period_profile' %}"  
+				method="POST">
+			<modal-body>
+				{% csrf_token %}
+				<input type="hidden" name="school_id" value="{{ school_id }}"/>
+				{% bootstrap_field add_period_form.period_name addon_after=glyphicon_pencil placeholder="B4 Day Profile" %}
+				{% bootstrap_field add_period_form.period_type %}
+			</modal-body>
+
+			<modal-footer>
+				
+			</modal-footer>
+			</form>
+		</modal-content>
+	</div>
+{% endif %}

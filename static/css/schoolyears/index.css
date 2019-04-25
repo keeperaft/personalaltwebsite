@@ -1,0 +1,277 @@
+.school-name {
+	font-size: 1.25em;
+	font-weight: 700;
+	padding: 5px;
+}
+
+.sub-school-information {
+	font-size: 1.30em;
+	font-weight: 600;
+	padding: 5px;
+    padding-left: 20px;
+}
+
+.school-color, .modal-school-color {
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    top: 5px;
+    left: 5px;
+    position: relative;
+    cursor: pointer;
+    background-color: #AAA;
+}
+
+.school-color {
+    margin-bottom: 10px;
+}
+
+.school-color-selected {
+    border: 2px solid black;
+}
+
+.color-checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white; 
+    position: absolute;
+    left: 55%;
+    top: -2px;
+}
+
+.instruction-image img {
+    border: 2px solid #666;
+    width: 400px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.legends-school-color {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    color: #202020;
+}
+
+#route-code-generated-script {
+    height: 150px;
+}
+
+/* Travel information */
+.travel-node {
+    border: 2px solid #AAA;
+    background-color: #888;
+    color: white;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.10em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.travel-node-text {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.travel-path {
+    border-left: 5px solid #AAA;
+    margin-left: 20px;
+    padding: 15px;
+}
+
+.rounded-travel-path {
+    border-radius: 0 0 5px 5px;
+}
+
+.travel-mode {
+    font-weight: 700;
+    font-size: 1.10em;
+}
+
+.travel-path-trail-off {
+    border-left: 5px dotted #AAA;
+    margin-left: 20px;
+    padding: 15px;
+    height: 20px;
+}
+
+.end-node-cap {
+    border: 5px solid #AAA;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 28px;
+    background-color: #888;
+}
+
+.editable-route {
+    cursor: pointer;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 6px 12px 6px 12px;
+    display: inline-block;
+}
+
+.editable-route:hover{
+    border: 1px solid #888;
+}
+
+/* Calendar */
+
+.fixed-saving {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    color: white;
+    font-size: 3.0em;
+    text-align: center;
+    padding-top: 25%;
+    z-index: 2;
+    display: none;
+}
+
+.calendar-parent {
+    position: relative;
+}
+
+.calendar-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 3.0em;
+    color: white;
+    cursor: not-allowed;
+    display: none;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.multi-select-calendar * {box-sizing: border-box;}
+.multi-select-calendar ul {list-style-type: none;}
+
+.schoolyear-month {
+    padding: 10px;
+    width: 100%;
+    background: #333;
+    color: #FFF;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.schoolyear-month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.schoolyear-month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    list-style-type: none;
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    color: #666;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.days {
+    padding: 0;
+    padding-bottom: 5px;
+    padding-right: 0px;
+    background: #eee;
+    margin: 0;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    color: #202020;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.days li:hover {
+    background-color: #DDD;
+}
+
+.days .no-day:hover {
+    background-color: #EEE;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+#edit-school-color {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #AAA;
+    position: relative;
+}
+
+.active-school {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 1.25em;
+}
+
+.active-school-dropdown {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

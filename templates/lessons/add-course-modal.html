@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load bootstrap3 %}
+<div class="hidden remove-me">
+	<modal-content id="add-course">
+		<modal-head>
+			{% trans "Add Book" %}
+		</modal-head>
+
+		<form class="modal-form" action="{% url 'lessons:add_course' %}"  method="POST">
+		<modal-body>
+			{% csrf_token %}
+			{% bootstrap_field add_course_form.course_name addon_after=glyphicon_pencil placeholder="Hi Friends 1" %}
+			{% bootstrap_field add_course_form.course_code addon_after=glyphicon_pencil placeholder="HiFr1" %}
+		</modal-body>
+
+		<modal-footer>
+			
+		</modal-footer>
+		</form>
+	</modal-content>
+</div>

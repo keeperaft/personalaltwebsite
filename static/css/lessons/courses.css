@@ -1,0 +1,17 @@
+.header-course-code {
+	font-weight: 200;
+}
+
+.flashcard-preview-image {
+	width: 60%;
+}
+
+#test-text {
+	border: 2px dashed #AAA;
+	height: 150px;
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 20px;
+}

@@ -1,0 +1,22 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+<div class="row">
+	<div class="col-sm-6 page-header-left" id="school-year-name">
+		{{ selected_school_year.name }}
+	</div>
+	<div class="col-sm-6 page-header-right">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-schoolyear" name="edit-school-year">
+			{{ glyphicon_edit }} {% trans "Edit" %}</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-11">
+		{{ selected_school_year.start_date }} ~ {{ selected_school_year.end_date }}<br/>
+		{% if selected_school_year.is_active %}
+			{% trans "This school year is the active school year." %}
+		{% else %}
+			{% trans "This school year is inactive." %}
+		{% endif %}
+	</div>
+</div>

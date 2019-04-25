@@ -1,0 +1,32 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "trash" as glyphicon_trash %}
+<tr data-id="{{ period.id }}"
+	data-update-period-number-url="/schedules/update_period_number">	
+	<td><span class="period-number">{{ period.period_number }}</span></td>
+	<td>
+		<span class="editable-label" 
+			data-url="/schedules/update_period_start_time" 
+			data-id="{{ period.id }}"
+			data-value="{{ period.start_time|time:'H:i' }}"
+			data-type="textfield">
+				{{ period.start_time|time:"H:i" }}
+		</span>
+	</td>
+	<td>
+		<span class="editable-label" 
+			data-url="/schedules/update_period_end_time" 
+			data-id="{{ period.id }}"
+			data-value="{{ period.end_time|time:'H:i' }}"
+			data-type="textfield">
+				{{ period.end_time|time:"H:i" }}
+		</span>
+	<td>
+		<button type="button" 
+			class="btn btn-tertiary delete-time-period-button"
+			data-id="{{ period.id }}"
+			data-url="/schedules/delete_period">
+			{{ glyphicon_trash }}&nbsp;{% trans "Delete Time Period" %}
+		</button>
+	</td>
+</tr>

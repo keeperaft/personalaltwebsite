@@ -1,0 +1,33 @@
+.round-trip-marker {
+    background-color: #86F09D;
+    font-size: 0.8em;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right:7px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.round-trip-marker-cancelled {
+	background-color: #DDD;
+	color: #999;
+    font-size: 0.8em;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right:7px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.reimbursement-date-cancelled, .route-info-cancelled, .individual-reimbursement-cost-cancelled {
+	text-decoration: line-through;
+	color: #999;
+}
+
+.reimbursement-header-container {
+	max-width: 100%;
+}
+
+#reimbursement-code-generated-script {
+    height: 150px;
+}

@@ -1,0 +1,20 @@
+.period-time {
+	font-size: 0.75em;
+	font-weight: 400;
+}
+
+.week-view-section {
+	padding-left: 0px;
+	padding-right: 0px;
+	border-right: 1px solid #CCC;
+	margin-left: 2px;
+	text-align: center;
+}
+
+.week-view-section:last-child {
+	border-right: none;
+}
+
+.week-view-section:first-child {
+	margin-left: 15px;
+}

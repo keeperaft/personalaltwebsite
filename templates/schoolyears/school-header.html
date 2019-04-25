@@ -1,0 +1,9 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+<div class="row">
+	<div class="col-xs-6 page-header-left">{% trans "Schools" %}</div>
+	<div class="col-xs-6 page-header-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-school" name="add-school-button">
+		{{ glyphicon_plus }} {% trans "Add School" %}
+	</button></div>
+</div>

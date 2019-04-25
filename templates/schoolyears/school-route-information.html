@@ -1,0 +1,158 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+{% bootstrap_icon "time" as glyphicon_time %}
+<div class="row">
+	<div class="sub-school-information">
+		<div class="row">
+			<div class="col-sm-12">
+				{% trans "Route Information" %}
+				<button class="btn btn-tertiary toggle-visibility"
+					data-target="#travel-information-{{ school.id }}">
+					{% trans "Show" %}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="toggle-visibility-target" id="travel-information-{{ school.id }}">
+	{% if school.route_info %}
+		{% for route in school.route_info %}
+			<modal-content id="edit-node-{{ route.route_id }}">
+				<modal-head>
+					{% trans "Edit Station Name" %}
+				</modal-head>
+
+				<form class="modal-form" action="/schoolyears/update_station/" method="POST">
+				<modal-body>
+					{% csrf_token %}
+					{% bootstrap_field route.node_form.name addon_after=glyphicon_pencil placeholder="Shinjuku Station" %}
+					<input type="hidden" name="route_info_id" value="{{ route.route_id }}"/>
+					<input type="hidden" name="school_route_id" value="{{ school.school_route_id }}"/>
+				</modal-body>
+
+				<modal-footer>
+				</modal-footer>
+				</form>
+			</modal-content>
+			<div class="travel-node" data-toggle="modal" 
+				data-target="#edit-node-{{ route.route_id }}">
+			{% if forloop.first %}
+				<span class="glyphicon glyphicon-home"></span> 
+			{% else %}
+				<span class="glyphicon glyphicon-blackboard"></span>
+			{% endif %}
+				<div class="travel-node-text">{{ route.node.name }}</div>
+			</div>
+			
+			<div class="travel-path">
+			{% if route.path is not None %}
+				<modal-content id="edit-route-{{ route.route_id }}">
+					<modal-head>
+						{% trans "Edit Route From " %}{{ route.node.name }}
+					</modal-head>
+
+					<form class="modal-form" action="/schoolyears/update_path/" method="POST">
+					<modal-body>
+						<div class="travel-node">
+							{{ route.node.name }}
+						</div>
+						<div class="travel-path rounded-travel-path">
+							{% csrf_token %}
+							{% bootstrap_field route.path_form.travel_vehicle_name addon_after=glyphicon_pencil placeholder="e.g.: 'JR Chuo Line (to Tokyo)', 'Walking'" %}
+							{% bootstrap_field route.path_form.start_time addon_after=glyphicon_time placeholder="7:20" %}
+							{% bootstrap_field route.path_form.end_time addon_after=glyphicon_time placeholder="7:35" %}
+							{% bootstrap_field route.path_form.cost addon_before="¥" placeholder="240" %}
+							<input type="hidden" name="path_id" value="{{ route.path.id }}"/>
+							<input type="hidden" name="school_route_id" value="{{ school.school_route_id }}"/>
+
+						</div>
+						<div class="travel-path-trail-off">
+						</div>
+					</modal-body>
+
+					<modal-footer>
+						
+					</modal-footer>
+					</form>
+				</modal-content>
+				<div class="editable-route" data-toggle="modal" 
+					data-target="#edit-route-{{ route.route_id }}">
+					<div class="travel-mode">
+						{{ route.path.travel_vehicle_name }}
+					</div>
+					<div class="travel-time">
+						{{ route.path.start_time|time:"H:i" }} ~ {{ route.path.end_time|time:"H:i" }}
+					</div> 
+					<div class="travel-cost">
+						¥ {{ route.path.cost }}
+					</div>
+				</div>
+			{% else %}
+				<modal-content id="add-route-{{ route.route_id }}">
+					<modal-head>
+						{% trans "Add Route From " %}{{ route.node.name }}
+					</modal-head>
+
+					<form class="modal-form" action="/schoolyears/add_route/" method="POST">
+					<modal-body>
+						<div class="travel-node">
+							{{ route.node.name }}
+						</div>
+						<div class="travel-path">
+							{% csrf_token %}
+							{% bootstrap_field path_form.travel_vehicle_name addon_after=glyphicon_pencil placeholder="e.g.: 'JR Chuo Line (to Tokyo)', 'Walking'" %}
+							{% bootstrap_field path_form.start_time addon_after=glyphicon_time placeholder="7:20" %}
+							{% bootstrap_field path_form.end_time addon_after=glyphicon_time placeholder="7:35" %}
+							{% bootstrap_field path_form.cost addon_before="¥" placeholder="240" %}
+							<input type="hidden" name="route_info_id" value="{{ route.route_id }}"/>
+							<input type="hidden" name="school_route_id" value="{{ school.school_route_id }}"/>
+						</div>
+						<div class="travel-node">
+							{% bootstrap_field node_form.name addon_after=glyphicon_pencil placeholder="Tokyo Station" %}
+						</div>
+					</modal-body>
+
+					<modal-footer>
+						
+					</modal-footer>
+					</form>
+				</modal-content>
+
+				<div class="btn btn-primary"　
+					data-toggle="modal" 
+					data-target="#add-route-{{ route.route_id }}">
+				{% trans "Add Travel Route" %}
+				</div>
+				<div class="end-node-cap"></div>
+			{% endif %}
+			</div> <!-- .travel-path -->
+		{% endfor %}
+	{% else %}
+		<div class="btn btn-primary" data-toggle="modal" data-target="#add-home-station-{{ school.id }}">
+			<span class="glyphicon glyphicon-home"></span> 
+			<div class="travel-node-text">{% trans "Add Home Station" %}</div>
+		</div>
+		<div class="hidden remove-me">
+			<modal-content id="add-home-station-{{ school.id }}">
+				<modal-head>
+					{% trans "Add Home Station" %}
+				</modal-head>
+
+				<!-- TO-DO: Form from the back-end -->
+				<form class="modal-form" action="/schoolyears/add_home_station/" method="POST">
+				<modal-body>
+					{% csrf_token %}
+					{% bootstrap_field node_form.name addon_after=glyphicon_pencil placeholder="Shinjuku Station" %}
+					<input type="hidden" name="school_id" value="{{ school.id }}"/>
+					<input type="hidden" name="school_year_id" value="{{ selected_school_year.id }}"/>
+				</modal-body>
+
+				<modal-footer>
+					
+				</modal-footer>
+				</form>
+			</modal-content>
+		</div>
+	{% endif %}
+</div>

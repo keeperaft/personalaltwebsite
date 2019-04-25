@@ -1,0 +1,12 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+
+<div class="row">
+	<div class="col-sm-9 page-header-left" id="school-year-name">
+		{{ course.course_name }}
+		<span class="header-course-code">
+			({{ course.course_code }})
+		</span>
+	</div>
+</div>

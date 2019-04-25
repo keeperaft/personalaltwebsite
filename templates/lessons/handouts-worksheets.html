@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load static %}
+{% load bootstrap3 %}
+<div class="row">
+	<div class="col-xs-5 page-subheader-left">
+		{% trans "Handouts and Worksheets" %}
+	</div>
+	<div class="col-xs-7 page-subheader-right">
+		{% if activity.files %}
+		<a href="/lessons/download_all/{{ activity.id }}">
+			<button 
+				type="button" 
+				class="btn btn-secondary" 
+				data-toggle="modal" 
+				data-target="#download-all" 
+				name="add-file">
+					{% bootstrap_icon "download" %} {% trans "Download All" %}
+			</button>
+		</a>
+		{% endif %}
+	</div>
+</div>
+<table class="table table-hover margin-top-5">
+	<tr>
+		<th class="col-xs-3">{% trans "Filename" %}</th>
+		<th class="col-xs-2">{% trans "Size" %}</th>
+		<th>{% trans "Notes" %}</th>
+		<th class="col-xs-5 page-subsubheader-right">{% trans "Actions" %}</th>
+	</tr>
+	{% if activity.files %}
+	{% for file in activity.files %}
+	<tr>
+		<td>
+			{{ file.original_filename }} 
+			{% if file.is_link_to_existing_file %}
+				<a href="#" data-toggle="tooltip" data-placement="right" title="{% trans 'This file is linked to another activity, so deleting this file would delete its presence in the other activity as well.' %}">{% bootstrap_icon "link" %}</a>
+			{% endif %}
+		</td>
+		<td>{{ file.activity_file.size|filesizeformat }}</td>
+		<td>
+			{% if file.notes %}
+				{{ file.notes }}
+			{% else %}
+				<i>N/A</i>
+			{% endif %}
+		</td>
+		<td class="page-subsubheader-right">
+			<a href="{% static '' %}media/{{file.activity_file}}">
+				<button type="button" class="btn btn-secondary">
+					{% bootstrap_icon "download" %} {% trans "Download" %}
+				</button>
+			</a>
+		</td>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<tr>
+		<td colspan="4" class="vertical-center">
+		{% trans "There are no files available for this activity." %}
+		</td>
+	</tr>
+	{% endif %}
+</table>

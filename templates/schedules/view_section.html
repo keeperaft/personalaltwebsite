@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "View Section" %}
+{% endblock title %}
+
+{% block content %}
+	{% bootstrap_icon "plus" as glyphicon_plus %}
+	{% bootstrap_icon "edit" as glyphicon_edit %}
+	{% bootstrap_icon "trash" as glyphicon_trash %}
+	{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+	<a href="/schedules/sections_courses/{{ school_id }}"> 
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		{% trans "Back to Year Level Manager page for" %} {{ school_name }} {% trans "<span class='japanese-back-to-year-level-manager'></span>" %}
+	</a>
+	<div class="row">
+		<div class="col-xs-12 page-header-left">
+			{{ school_name }}: 
+			{% if is_special_needs %}
+				{% trans "Special Needs" %}
+			{% else %}
+				{% trans "Grade " %}{{ year_level }}{% trans "<span class='japanese-year-level'></span>" %}
+			{% endif %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-9 page-subheader-left">
+			{% trans "Section Information" %}
+		</div>
+		<div class="col-sm-3 page-subheader-right">
+			<button 
+				class="btn btn-primary"
+				data-toggle="modal"
+				name="add-section-button"
+				data-target="#add-section">
+				{{ glyphicon_plus }} {% trans "Add Section" %}
+			</button>
+		</div>
+	</div>
+	{% if all_sections %}
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-xs-2">{% trans "Section Name" %}</th>
+			<th class="col-xs-3">{% trans "Teacher's Name" %}</th>
+			<th class="col-xs-2">{% trans "Student Count" %}</th>
+			<th class="col-xs-3 hidden-xs">{% trans "Notes" %}</th>
+			<th class="col-xs-2">{% trans "Actions" %}</th>
+		</tr>
+		{% for section in all_sections %}
+		<tr>
+			<td>
+				{% with section.section_name as section_name %}
+					{% include "section-name-base.html" %}
+				{% endwith %}
+			</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schedules/update_section/teacher_name" 
+					data-id="{{ section.id }}"
+					data-value="{{ section.teacher_name }}"
+					data-type="textfield">
+						{{ section.teacher_name }}
+				</span>
+			</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schedules/update_section/student_count" 
+					data-id="{{ section.id }}"
+					data-value="{{ section.student_count }}"
+					data-type="numeric-textfield">
+						{{ section.student_count }}
+				</span>
+			</td>
+			<td class="hidden-xs">
+				<span class="editable-label" 
+					data-url="/schedules/update_section/notes" 
+					data-id="{{ section.id }}"
+					data-value="{{ section.notes }}"
+					data-type="textfield">
+						{{ section.notes }}
+				</span>
+			</td>
+			<td>
+				<a href="/schedules/delete_section/{{ section.id }}">
+					<button class="btn btn-tertiary">
+						{{ glyphicon_trash }} {% trans "Delete" %}
+					</button>
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+		{% trans "There are no available sections for this school and year level." %}
+	{% endif %}
+	<div class="row">
+		<div class="col-sm-9 page-subheader-left">
+			{% trans "Book Information" %}
+		</div>
+		<div class="col-sm-3 page-subheader-right">
+			<button 
+				class="btn btn-primary"
+				id="assign-book-button"
+				data-toggle="modal"
+				data-target="#assign-book">
+				{{ glyphicon_plus }} {% trans "Assign Book" %}
+			</button>
+		</div>
+	</div>
+	{% if courses %}
+	<table class="table table-hover">
+		<tr>
+			<th class="col-xs-9">{% trans "Book" %}</th>
+			<th class="page-subheader-right">{% trans "Actions" %}</th>
+		</tr>
+		{% for course in courses %}
+		<tr>
+			<td>
+				{{ course.course }}
+				<div class="hidden remove-me">
+					<modal-content id="edit-school-section-book-{{ course.id }}">
+						<modal-head>
+							{% trans "Re-assign a new book to " %} {{ school_name }}: 
+							{% if is_special_needs %}
+								{% trans "Special Needs" %}
+							{% else %}
+								{% trans "Grade " %}{{ year_level }}{% trans "<span class='japanese-year-level'></span>" %}
+							{% endif %}
+						</modal-head>
+						<form class="modal-form" action="{% url 'schedules:reassign_book' %}"  method="POST">
+						<modal-body>
+							{% csrf_token %}
+							<input type="hidden" name="school_section_course_id" value="{{ course.id }}">
+							<input type="hidden" name="school_section_id" value="{{ school_section_id }}"/>
+							{% bootstrap_field course.edit_book_form.book %}
+						</modal-body>
+
+						<modal-footer>
+							
+						</modal-footer>
+						</form>
+					</modal-content>
+				</div>
+			</td>
+			<td class="page-subheader-right">
+				<a href="/schedules/delete_assigned_book/{{ course.id }}/{{ school_section_id }}">
+					<button class="btn btn-tertiary">
+						{{ glyphicon_trash }} {% trans "Delete"%}
+					</button> 
+				</a>
+				<button class="btn btn-secondary"
+					data-toggle="modal"
+					data-target="#edit-school-section-book-{{ course.id }}">
+					{{ glyphicon_edit }} {% trans "Edit" %}
+				</button>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<div class="row">
+		<div class="col-xs-12 vertical-center">
+			{% trans "There are no assigned books for this year level.<br/> Would you like to " %}<a href="#" data-toggle="modal" data-target="#assign-book">{% trans " assign a book?" %}</a>
+		</div>
+	</div>
+	{% endif %}
+	<div class="hidden remove-me">
+		<modal-content id="assign-book">
+			<modal-head>
+				{% trans "Assign a new book to " %} {{ school_name }} {% trans "<span class='japanese-assign-a-new-book'></span>" %}: 
+				{% if is_special_needs %}
+					{% trans "Special Needs" %}
+				{% else %}
+					{% trans "Grade " %}{{ year_level }}{% trans "<span class='japanese-year-level'></span>" %}
+				{% endif %}
+			</modal-head>
+
+			<form class="modal-form" action="{% url 'schedules:assign_book' %}"  method="POST">
+			<modal-body>
+				{% csrf_token %}
+				<input type="hidden" name="school_section_id" value="{{ school_section_id }}"/>
+				{% bootstrap_field assign_course_form.book %}
+			</modal-body>
+
+			<modal-footer>
+				
+			</modal-footer>
+			</form>
+		</modal-content>
+		<modal-content id="add-section">
+			<modal-head>
+				{% trans "Add a new section, " %} {{ school_name }} {% trans "<span class='japanese-add-a-new-section'></span>" %} : 
+				{% if is_special_needs %}{% trans "Special Needs" %}, SN-{% else %}{% trans "Grade " %}{{ year_level }}{% trans "<span class='japanese-year-level'></span>" %}, {% trans "Section " %}{{ year_level }}-{% endif %}{{ next_section }}{% trans "<span class='japanese-section'></span>" %}
+			</modal-head>
+
+			<form class="modal-form" action="{% url 'schedules:add_section' %}"  method="POST">
+			<modal-body>
+				{% csrf_token %}
+				<input type="hidden" name="school_section_id" value="{{ school_section_id }}"/>
+				<input type="hidden" name="section_name" value="{{ next_section }}"/>
+				{% bootstrap_field add_section_form.teacher_name %}
+				{% bootstrap_field add_section_form.student_count %}
+				{% bootstrap_field add_section_form.notes %}
+			</modal-body>
+
+			<modal-footer>
+				
+			</modal-footer>
+			</form>
+		</modal-content>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "Activities Finished Per Section" %}
+		</div>
+	</div>
+	{% if all_section_classes %}
+	{% for section in all_section_classes %}
+	<div class="row">
+		<div class="col-sm-9 page-subheader-left">
+			{% with section.section_name as section_name %}
+				{% include "section-name-base.html" %}
+			{% endwith %}
+			(Classes held: {{ section.classes.count }})
+		</div>
+		<div class="col-sm-3 page-subheader-right">
+			<a href="/schedules/view_section_activities/{{ section.id }}">
+				<button class="btn btn-tertiary btn-view-all">
+					{{ glyphicon_info_sign }} {% trans "View All" %}
+				</button>
+			</a>
+		</div>
+	</div>
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-xs-1">{% trans "Date" %}</th>
+			<th class="col-xs-1 hidden-xs">{% trans "Greeting" %}</th>
+			<th class="col-xs-2 hidden-xs">{% trans "Warmup" %}</th>
+			<th class="col-xs-2">{% trans "Presentation" %}</th>
+			<th class="col-xs-2">{% trans "Practice" %}</th>
+			<th class="col-xs-2">{% trans "Production" %}</th>
+			<th class="col-xs-1 hidden-xs">{% trans "Cooldown" %}</th>
+			<th class="col-xs-1 hidden-xs">{% trans "Assessment" %}</th>
+		</tr>
+		{% if section.classes.all_classes %}
+		{% for class in section.classes.all_classes %}
+		<tr>
+			<td>{{ class.date|date:"m/d" }}</td>
+			<td class="hidden-xs">
+				{% if class.lesson_plan.greeting is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.greeting.id }}">
+					{{ class.lesson_plan.greeting }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td class="hidden-xs">
+				{% if class.lesson_plan.warmup is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.warmup.id }}">
+					{{ class.lesson_plan.warmup }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.presentation is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.presentation.id }}">
+					{{ class.lesson_plan.presentation }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.practice is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.practice.id }}">
+					{{ class.lesson_plan.practice }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.production is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.production.id }}">
+					{{ class.lesson_plan.production }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td class="hidden-xs">
+				{% if class.lesson_plan.cooldown is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.cooldown.id }}">
+					{{ class.lesson_plan.cooldown }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td class="hidden-xs">
+				{% if class.lesson_plan.assessment is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.assessment.id }}">
+					{{ class.lesson_plan.assessment }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<tr>
+			<td colspan="8" class="vertical-center">
+				<i>{% trans "Classes have not been held for this section yet." %}</i>
+			</td>
+		</tr>
+		{% endif %}
+	</table>
+	{% endfor %}
+	{% else %}
+	<div class="row">
+		<div class="col-xs-12 vertical-center">
+			<i>{% trans "It looks like classes have not been held yet for any of the sections in this year level. A class can be scheduled using the Schedule Manager function." %}</i>
+		</div>
+	</div>
+	{% endif %}
+{% endblock content %}

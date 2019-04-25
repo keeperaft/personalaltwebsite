@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Year Level Manager" %}
+{% endblock title %}
+
+{% block additional_js %}
+<script src="{% static "js/schedules/sections-courses.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+	{% bootstrap_icon "edit" as glyphicon_edit %}
+	<div class="row">
+		<div class="col-xs-12 page-header-left" id="school-year-name">
+			{% trans "Year Level Manager" %}
+		</div>
+	</div>
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-sm-3">{% trans "School Year" %}</th>
+			<td> 
+				<select class="form-control" id="sections-courses-school-year" name="school-year">
+					{% for item in all_school_years %}
+						<option value="{{ item.school_year.id }}" 
+							data-start-month="{{ item.school_year.start_date.month }}"
+							data-start-year="{{ item.school_year.start_date.year }}"
+							data-end-month="{{ item.school_year.end_date.month }}"
+							data-end-year="{{ item.school_year.end_date.year }}"
+							data-schools="{{ item.schools }}"
+							{% if school_year_id == item.school_year.id %}
+								selected="selected"
+							{% endif %}>
+							{{ item.school_year.name }}
+						</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-sm-3">{% trans "School" %}</th>
+			<td id="sections-courses-school-dropdown-cell" 
+				data-selected-id="{{ school_id }}">
+				<select disabled="true"
+					class="form-control" 
+					name="school">
+					<option>{% trans "Loading" %}</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-4">
+			<a href="/schedules/sections_courses/0" id="view-school-profile-button">
+				<button class="btn btn-primary" name="view-year-level-information">
+					{{ glyphicon_info_sign }} {% trans "View Year Level Information" %}
+				</button>
+			</a>
+		</div>
+	</div>
+	<hr/>
+	{% if school_name %}
+		<div class="row">
+			<div class="col-xs-12 page-subheader-left">
+				{% trans "Year Level Information for " %}
+				{{ school_name }}
+			</div>
+		</div>
+		{% if all_school_sections %}
+			<table class="table table-hover padding-5">
+			<tr>
+				<th class="col-xs-2">{% trans "Year Level" %}</th>
+				<th class="col-xs-2">{% trans "Section Count" %}</th>
+				<th class="col-xs-2">{% trans "Total Students" %}</th>
+				<th class="col-xs-2">{% trans "Assigned Books" %}</th>
+				<th class="page-subheader-right">{% trans "Actions" %}</th>
+			</tr>
+			{% for section in all_school_sections %}
+			<tr>
+				<td>
+					{% if section.is_special_needs %}
+						{% trans "Special Needs" %}
+					{% else %}
+						{% trans "Grade " %}{{ section.year_level }}{% trans "<span class='japanese-year-level'></span>" %}
+					{% endif %}
+				</td>
+				<td>
+					{{ section.section_count }}
+				</td>
+				<td>{{ section.total_students }}</td>
+				<td>
+					{% if section.courses %}
+						{% for course in section.courses %}
+							{{ course.course.course_name }}<br/>
+						{% endfor %}
+					{% else %}
+					<i>N/A</i>
+					{% endif %}
+				</td>
+				<td class="page-subheader-right">
+					<a href="/schedules/view_section/{{ section.id }}">
+						<button class="btn btn-secondary">
+							{{ glyphicon_edit }} {% trans "Manage" %}
+						</button>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+			</table>
+		{% else %}
+			{% trans "There are no sections and courses available for this school." %}
+		{% endif %}
+	{% endif %}
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+<div class="row">
+	<div class="col-sm-9 page-subheader-left">
+		{{ period_profiles.type.period_name }}
+		<span class="default-profile-marker set-data-color" data-color="#{{ period_profiles.period_type_color }}">{{ period_profiles.period_type_text }}</span>
+	</div>
+	<div class="col-sm-3 page-subheader-right">
+		<button 
+			type="button" 
+			class="btn btn-primary edit-period-profile-entry-button" 
+			data-toggle="modal" 
+			data-target="#edit-period-profile-{{ period_profiles.type.id }}" 
+			name="edit-period-profile-entry-button">
+				{{ glyphicon_edit }} {% trans "Edit Profile" %}
+		</button>
+	</div>
+</div>
+<table class="table table-hover margin-top-5 period-display-table">
+	<tr>
+		<th class="col-md-3">{% trans "Period Number" %}</th>
+		<th class="col-md-3">{% trans "Start Time" %}</th>
+		<th class="col-md-3">{% trans "End Time" %}</th>
+		<th class="col-md-3">{% trans "Actions" %}</th>
+	</tr>
+	{% if period_profiles.periods %}
+		{% for period in period_profiles.periods %}
+			{% include "schedules/school-periods-period-row.html" %}
+		{% endfor %}
+	{% endif %}
+	{% include "schedules/school-periods-period-input-row.html" %}
+</table>
+<div class="hidden remove-me">
+	<modal-content id="edit-period-profile-{{ period_profiles.type.id }}">
+		<modal-head>
+			{% trans "Edit Period Profile" %}
+		</modal-head>
+
+		<form class="modal-form" 
+			action="/schedules/update_period_profile"  
+			method="POST">
+		<modal-body>
+			{% csrf_token %}
+			<input type="hidden" name="period_type_id" value="{{ period_profiles.type.id }}"/>
+			{% bootstrap_field period_profiles.edit_period_form.period_name addon_after=glyphicon_pencil placeholder="B4 Day" %}
+			{% bootstrap_field period_profiles.edit_period_form.period_type %}
+		</modal-body>
+
+		<modal-footer>
+			
+		</modal-footer>
+		</form>
+	</modal-content>
+</div>

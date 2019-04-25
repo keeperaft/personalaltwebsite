@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="alert alert-danger alert-dismissable">
+	{% load i18n %}
+	{% trans "Error 404: Page not found.<br/>Please click <a href='/'>here</a> to return to the dashboard." %}
+</div>
+{% endblock content %}

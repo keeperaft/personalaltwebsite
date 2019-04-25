@@ -1,0 +1,37 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+{% bootstrap_icon "repeat" as glyphicon_undo %}
+{% bootstrap_icon "download-alt" as glyphicon_download_alt %}
+{% bootstrap_icon "floppy-disk" as glyphicon_save %}
+
+<div class="row">
+	<div class="col-sm-6 page-subheader-left">
+		{% trans "Schedule" %}
+	</div>
+	<div class="col-sm-6 page-subheader-right">
+		<button class="btn btn-secondary" id="btn-download-ics">
+			{{ glyphicon_download_alt }} {% trans "Download .ICS" %}</button>
+		<button class="btn btn-secondary" id="btn-undo">
+			{{ glyphicon_undo }} {% trans "Undo" %}</button>
+		<button class="btn btn-primary" id="btn-save">
+			{{ glyphicon_save }} {% trans "Save" %}</button>
+	</div>
+</div>
+
+<div class="row padding-10 calendar-parent">
+	<div class="calendar-overlay">{% trans "Saving..." %}</div>
+	<calendar-display 
+		data-is-editing="true"
+		data-start-year="{{ selected_school_year.start_date.year }}"
+		data-start-month="{{ selected_school_year.start_date.month }}" 
+		data-start-day="{{ selected_school_year.start_date.day }}" 
+		data-start-weekday="{{ selected_school_year.start_date.weekday }}" 
+		data-end-year="{{ selected_school_year.end_date.year }}" 
+		data-end-month="{{ selected_school_year.end_date.month }}" 
+		data-end-day="{{ selected_school_year.end_date.day }}"
+		data-end-weekday="{{ selected_school_year.end_date.weekday }}"
+		data-calendar-data="{{ schedule_json }}"
+		data-id-info-map="{{ info_json }}">
+	</calendar-display>
+</div>

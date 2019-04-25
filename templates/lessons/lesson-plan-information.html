@@ -1,0 +1,72 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+{% bootstrap_icon "chevron-right" as glyphicon_chevron_right %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+
+<div class="row">
+	<div class="col-sm-8 page-subheader-left">
+		{% if selected_topic or selected_lesson and selected_course %}
+			{% trans "Hour" %} <span class="hour-number">{{ hour.hour_number }}</span>{% trans "<span class='japanese-hour'></span>" %}
+		{% else %}
+			{% trans "Lesson Plan Information" %}
+		{% endif %}
+	</div>
+	<div class="col-sm-4 page-subheader-right">
+		<a href="/lessons/print_lesson_plan/{{ hour.id }}">
+			<button type="button" class="btn btn-primary print-lesson-plan">
+			{% bootstrap_icon "print" %} {% trans "Print" %}
+			</button>
+		</a>
+	</div>
+</div>
+<table class="table table-hover margin-top-5">
+	<tr>
+		<th class="col-xs-2">{% trans "Portion" %}</th>
+		<th>{% trans "Activity Name" %}</th>
+		<th class="col-xs-4">{% trans "Materials" %}</th>
+	</tr>
+	<tr>
+		<th>{% trans "Greeting" %}</th>
+		{% with hour.greeting as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Warmup" %}</th>
+		{% with hour.warmup as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Presentation" %}</th>
+		{% with hour.presentation as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Practice" %}</th>
+		{% with hour.practice as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Production" %}</th>
+		{% with hour.production as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Cooldown" %}</th>
+		{% with hour.cooldown as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+	<tr>
+		<th>{% trans "Assessment" %}</th>
+		{% with hour.assessment as portion %}
+			{% include "lessons/lesson_plan_portion_cell.html" %}
+		{% endwith %}
+	</tr>
+</table>
+<hr/>

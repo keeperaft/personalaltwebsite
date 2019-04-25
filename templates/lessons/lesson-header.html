@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+
+<div class="row">
+	<div class="col-sm-9 page-subheader-left">
+		{% trans "Lesson" %} <span class="lesson-number">{{ lesson.lesson_number }}</span>: {{ lesson.title }}
+	</div>
+</div>
+
+<div class="hidden remove-me">
+	<modal-content id="edit-lesson-{{ lesson.id }}">
+		<modal-head>
+			Edit {% trans "Lesson" %} {{ lesson.lesson_number }}: {{ lesson.title }}
+		</modal-head>
+
+		<form class="modal-form" action="/lessons/edit_lesson"  method="POST">
+		<modal-body>
+			{% csrf_token %}
+			<input type="hidden" name="id" value="{{ lesson.id }}"/>
+			<input type="hidden" name="lesson_number" value="{{ lesson.lesson_number }}" />
+			<div class="form-group">
+				<label class="control-label" for="id_title">Title</label>
+				<div class="input-group">
+					<input type="text" name="value" value="Testing" class="form-control" maxlength="128" title="" placeholder="What would you like? (ランチメニューを作ろう)" required="" id="id_title">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</span>
+				</div>
+			</div>
+		</modal-body>
+
+		<modal-footer>
+			
+		</modal-footer>
+		</form>
+	</modal-content>
+</div>
+<br/>
