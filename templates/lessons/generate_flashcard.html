@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+
+<div class="hidden remove-me">
+	<modal-content id="generate-flashcard">
+		<modal-head>
+			{% trans "Generate Flashcard" %}
+		</modal-head>
+
+		<form class="modal-form" action="/lessons/generate_flashcard" method="POST" enctype="multipart/form-data">
+		<modal-body>
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-xs-12 vertical-center">
+					<img class="add-flashcard-preview-image flashcard-preview-image" src="{% static 'images/no-preview-image.png' %}" data-original-src="{% static 'images/no-preview-image.png' %}" alt="No preview image">
+				</div>
+			</div>
+			{% bootstrap_field add_flashcard_form.picture %}
+			{% bootstrap_field add_flashcard_form.label addon_after=glyphicon_pencil placeholder="Baskbetball" %}
+			{% bootstrap_field add_flashcard_form.notes addon_after=glyphicon_pencil placeholder="Sports" %}
+			{% bootstrap_field add_flashcard_form.flashcard_type %}
+			{% bootstrap_field add_flashcard_form.orientation %}
+			<div class="form-group">
+				<label class="control-label" for="id_is_bordered">
+					{% trans "Flashcard Border" %}
+				</label><br/>
+				{{ add_flashcard_form.is_bordered }}
+			</div>
+		</modal-body>
+
+		<modal-footer>
+			<div class="remove-save-button"></div>
+			<button class="btn btn-primary" type="submit">{% trans "Generate" %}</button>
+		</modal-footer>
+		</form>
+	</modal-content>
+</div>

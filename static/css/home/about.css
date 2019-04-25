@@ -1,0 +1,8 @@
+.about-image{
+	width: 100%;
+	border-radius: 5px;
+}
+
+.video-demo iframe {
+	max-width: 100%;
+}

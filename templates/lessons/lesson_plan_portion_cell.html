@@ -1,0 +1,21 @@
+{% load bootstrap3 %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+<td>
+	{% if portion is not None %}
+	{{ portion }}
+	<a href="/lessons/view_activity/{{ portion.id }}">
+		<button class="btn btn-tertiary btn-sm btn-smaller">
+			{{ glyphicon_info_sign }}
+		</button>
+	</a>
+	{% else %}
+		<i>N/A</i>
+	{% endif %}
+</td>
+<td>
+	{% if portion.materials %}
+		{{ portion.materials }}
+	{% else %}
+		<i>N/A</i>
+	{% endif %}
+</td>

@@ -1,0 +1,160 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+
+<div class="row">
+	<div class="col-sm-9 page-header-left">
+		{% blocktrans %}{{ day_text }}, {% endblocktrans %}{{ current_day.date|date:"F j" }}{% trans '<span class="japanese-day"></span>' %} {{ current_day.date|date:"(D)" }}
+		{% for event in current_day.events %}
+		<span class="default-profile-marker set-data-color" 
+			data-color="#{{ event.get_event_color }}">
+			{{ event.get_event_name }}
+		</span>	
+		{% endfor %}
+	</div>
+	<div class="col-sm-3 page-header-right">
+		{% if current_day.schedules %}
+		<form action="/print_day" method="POST">
+			{% csrf_token %}
+			<input type="hidden" name="date" value="{{ current_day.date.year }}-{{ current_day.date.month }}-{{ current_day.date.day }}" />
+			<button class="btn btn-primary" type="submit">
+				{{ glyphicon_print }} {% trans "Print" %}
+			</button>
+		</form>
+		{% endif %}
+	</div>
+</div>
+
+{% if current_day.schedules %}
+{% for schedule in current_day.schedules %}
+<div class="row">
+	<div class="col-sm-5">
+		<div class="row">
+			<div class="col-xs-12 page-subheader-left">
+				{% get_current_language as LANGUAGE_CODE %}
+				{% if LANGUAGE_CODE == 'en' %}
+					{{ schedule.school.name }}
+				{% else %}
+					{{ schedule.school.name_kanji }}
+				{% endif %}
+				<span class="default-profile-marker set-data-color" 
+					data-color="#{{ schedule.information.school_period_type.get_period_type_color }}">
+					{{ schedule.information.school_period_type.period_name }}
+				</span>	
+			</div>
+		</div>
+		<table class="table table-hover margin-top-5">
+			<tr>
+				<th class="col-xs-3">{% trans "Period" %}</th>
+				<th class="col-xs-3">{% trans "Class" %}</th>
+				<th>{% trans "Lesson" %}</th>
+			</tr>
+			{% for period in schedule.information.school_periods %}
+			<tr>
+				<td>
+					<strong>{% trans "Period" %} {{ period.period_number }}</strong><br/>
+					<div class="period-time">
+						{{ period.start_time|time:'H:i' }} ~ {{ period.end_time|time:'H:i' }}
+					</div>
+				</td>
+				{% if period.class_info %}
+				<td>
+					{% with period.class_info.section.school_section.is_special_needs as is_special_needs %}
+					{% with period.class_info.section.school_section.year_level as year_level %}
+					{% with period.class_info.section.section_name as section_name %}
+						{% include "section-name-base.html" %}
+					{% endwith %}
+					{% endwith %}
+					{% endwith %}
+				</td>
+				<td>
+					<span class="lesson-plan-text"> 
+			            {% trans "Lesson" %} {{ period.class_info.lesson_number }}, {% trans "Hour" %} {{ period.class_info.hour_number }} 
+		          	</span>
+					<a href="/schedules/view_section_period/{{ period.class_info.id }}">
+						<button class="btn btn-secondary btn-sm btn-smaller">{{ glyphicon_info_sign }}</button>
+					</a>
+					 <div class="small"> 
+						{% if period.class_info.notes %} 
+							<i> 
+								{% trans "Notes" %}: {{ period.class_info.notes }} 
+							</i> 
+						{% endif %} 
+					</div> 
+				</td>
+				{% else %}
+				<td colspan="2" class="vertical-center">
+					<i>{% trans "Free" %}</i>
+				</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="col-sm-7">
+		<div class="row">
+			<div class="col-xs-12 page-subheader-left">
+				{% trans "Lesson Information" %}
+			</div>
+		</div>
+		<table class="table table-hover margin-top-5">
+			<tr>
+				<th class="col-xs-2">{% trans "Materials" %}</th>
+				<td>
+					{% if schedule.information.materials %}
+						{% for material in schedule.information.materials %}
+							{% if material != '' %}
+								{{ material }}{% if not forloop.last %}, {% endif %}
+							{% endif %}
+						{% endfor %}
+					{% else %}
+						<i>N/A</i>
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<th>{% trans "Flashcards" %}</th>
+				<td>
+					{% if schedule.information.flashcards %}
+						{% for flashcard in schedule.information.flashcards %}
+							<a href="/lessons/download_flashcard/{{ flashcard.id }}">{{ flashcard.flashcard }}</a>{% if not forloop.last %}; {% endif %}
+						{% endfor %}
+					{% else %}
+						<i>N/A</i>
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<th>{% trans "Handouts" %}</th>
+				<td>
+					{% if schedule.information.handouts %}
+						{% for handout in schedule.information.handouts %}
+							<a href="/lessons/download_file/{{ handout.id }}">{{ handout.filename }}</a>{% if not forloop.last %}; {% endif %}
+						{% endfor %}
+					{% else %}
+						<i>N/A</i>
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<th>{% trans "Activities" %}</th>
+				<td>
+					{% if schedule.information.activities %}
+						{% for activity in schedule.information.activities %}
+							<a href="/lessons/view_activity/{{ activity.id }}">{{ activity.activity_name }}</a>{% if not forloop.last %}; {% endif %}
+						{% endfor %}
+					{% else %}
+						<i>N/A</i>
+					{% endif %}
+					
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+{% endfor %}
+{% else %}
+<div class="row vertical-center">
+	<i>{% trans "There are no scheduled classes for this day." %}</i>
+</div>
+{% endif %}

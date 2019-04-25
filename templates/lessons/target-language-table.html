@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+{% bootstrap_icon "download" as glyphicon_download %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+
+<table class="table table-hover margin-top-5 target-language-table">
+	<tr>
+		<th class="col-xs-3">{% trans "Target Language" %}</th>
+		<th class="col-xs-1">{% trans "Color" %}</th>
+		<th class="col-xs-3">{% trans "Notes" %}</th>
+		<th class="col-xs-5 page-subsubheader-right">{% trans "Actions" %}</th>
+	</tr>
+	{% for item in target_languages %}
+	<tr>
+		<td>
+			{{ item.target_language }}<br/>
+			{% if display_lesson_information %}
+				<span class="small text-muted">({{ item.lesson }})</span>
+			{% endif %}
+		</td>
+		<td>
+			<span 
+				class="set-text-color" 
+				data-text-color="#{{ item.get_hex_color }}">
+				{{ item.get_readable_color }}
+			</span>
+		</td>
+		<td>
+		{% if item.notes %}
+			{{ item.notes }}
+		{% else %}
+			<i>N/A</i>
+		{% endif %}
+		</td>
+		<td class="page-subsubheader-right">
+			<a href="/lessons/download_target_language/{{ item.id }}">
+				<button type="button" class="btn btn-secondary download-target-language-button">
+					{{ glyphicon_download }} {% trans "Download" %}
+				</button>
+			</a>
+		</td>	
+	</tr>
+	{% endfor %}
+</table>

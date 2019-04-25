@@ -1,0 +1,27 @@
+{% load static %}
+{% load i18n %}
+<div class="row">
+	<div class="col-sm-6 page-subheader-left">
+		{% trans "Instructions" %}
+	</div>
+	<div class="col-sm-6 page-subheader-right">
+		<button class="btn btn-tertiary toggle-visibility"
+				id="toggle-instructions"
+				data-target="#instructions"
+				data-image-url="{% static "images/edit-calendar-" %}"
+				data-has-been-clicked="false">
+				{% trans "Show" %}
+		</button>
+	</div>
+</div>
+<div class="toggle-visibility-target" id="instructions">
+<ul>
+<li>{% trans "Click on the Active School dropdown to select your desired school." %}</li>
+<li>{% trans "Click on any day within the calendar to toggle its schedule." %}</li>
+<li>{% trans "To set a range for a selected school, use SHIFT + Click." %}</li>
+<li>{% trans "Click and drag to select a number of days." %}</li>
+<li>{% trans "Click the Undo button or CTRL+Z to undo the last action. Note that it is not possible to redo the action once it is undone." %}</li>
+<li>{% trans "Click the Save button or CTRL+S to save the calendar to the database." %}</li>
+<li>{% trans "Click the Download .ICS button to download the iCAL file. The following shows how to download and import to Google Calendar." %}</li>
+</ul>
+</div>

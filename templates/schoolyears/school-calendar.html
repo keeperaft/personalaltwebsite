@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "download-alt" as glyphicon_download_alt %}
+{% bootstrap_icon "edit" as glyphicon_edit %}
+
+<div class="row">
+	<div class="col-sm-6 page-header-left">{% trans "Overall Schedule" %}</div>
+	<div class="col-sm-6 page-header-right">
+		<button class="btn btn-secondary" id="btn-download-ics">
+			{{ glyphicon_download_alt }} {% trans "Download .ICS" %}
+		</button>
+		<a href="edit_schedule/{{ selected_school_year.id }}">
+			<button type="button" class="btn btn-primary" name="btn-edit-schedule">
+				{{ glyphicon_edit }} {% trans "Edit Schedule" %}
+			</button>
+		</a>
+	</div>
+</div>
+<div class="row padding-10">
+	<calendar-display 
+		data-is-editing="false"
+		data-start-year="{{ selected_school_year.start_date.year }}"
+		data-start-month="{{ selected_school_year.start_date.month }}" 
+		data-start-day="{{ selected_school_year.start_date.day }}" 
+		data-start-weekday="{{ selected_school_year.start_date.weekday }}" 
+		data-end-year="{{ selected_school_year.end_date.year }}" 
+		data-end-month="{{ selected_school_year.end_date.month }}" 
+		data-end-day="{{ selected_school_year.end_date.day }}"
+		data-end-weekday="{{ selected_school_year.end_date.weekday }}"
+		data-calendar-data="{{ schedule_json }}"
+		data-id-info-map="{{ info_json }}">
+	</calendar-display>
+</div>

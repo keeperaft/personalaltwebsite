@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "About" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/home/about.css' %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block additional_js %}
+<script src="{% static 'js/home/about.js' %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-xs-12 page-header-left">
+			{% trans "About" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+		{% trans "PAW stands for Personal ALT Website, whereas ALT stants for Assistant Language Teacher. It is a tool used to help make the lives of ALTs even easier by having a centralized system managing everything. While the current system is tailored to ALTs, it is possible to modify it to suit the needs of teachers in general." %}
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "Feature Summary and Overview" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 vertical-center video-demo">
+			<br/>
+			{% trans '<iframe width="560" height="315" src="https://www.youtube.com/embed/TiPp5Y76HOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<br/>
+			<ul>
+				<li><h4>{% trans "Teaching Material Management:" %}</h4></li>
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+					<span class="about-image-container"
+						data-en="{% static 'images/readme/flashcards.gif' %}"
+						data-ja="{% static 'images/readme/flashcards-j.gif' %}"></span>
+					</div>
+				</div>
+				<ul>
+					<li>Allows users to store information about the books used, their respective flashcards, and the activities within them, into the system. (For the demo, users can view and download them.)</li>
+					<li>Allows users <b>to digitally manage their lesson plans</b> using the activities that were stored into the database. (For the demo, users can view and download lesson plans.)</li>
+					<li><b>This keeps everything organized and in one place.</b></li>
+				</ul>
+				<br/>
+				<li><h4>{% trans "Class Schedule Management:" %}</h4></li>
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+					<span class="about-image-container"
+						data-en="{% static 'images/readme/schedule.gif' %}"
+						data-ja="{% static 'images/readme/schedule-j.gif' %}"></span>
+					</div>
+				</div>
+				<ul>
+					<li>Allows users to manage year levels, assigning books and storing notes about each section.</li>
+					<li>Users can store their day-to-day class schedule in the system, and assign lesson plans to them. This information is viewable in the dashboard and printable for use.</li>
+					<li>ALTs usually get their schedules from their schools in paper form, which results in the ALT having to maintain a ton of sheets. <b>Having it all stored digitally prevents loss of information due to schedule misplacement.</b></li>
+					<li>With different sections from different schools, ALTs would need to keep track of which class is in which lesson, and <b>having it all stored and organized digitally lifts the burden of remembering everything from the ALT.</b></li>
+				</ul>
+				<br/>
+				<li><h4>{% trans "School Year Information Management:" %}</h4></li>
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+					<span class="about-image-container"
+						data-en="{% static 'images/readme/schoolyears.gif' %}"
+						data-ja="{% static 'images/readme/schoolyears-j.gif' %}"></span>
+					</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "Bugs and Enhancements" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<ul>
+				<li>{% trans "If you find any bugs, or found any improperly tagged flashcards, you can report it " %}<a href="https://docs.google.com/forms/d/1Mi2nfuZ7x41PEXiPeuNJx06-NQ1kNXkKta3aGnRrkNs">{% trans "here." %}</a></li>
+				<li>{% trans "If you would like to suggest new features, you can fo it " %}<a href="https://docs.google.com/forms/d/10IDdiRfPbH6zxtADjsMdG0APth8shUU-clqoQjJn2pA">{% trans "here." %}</a></li>
+				<li>{% trans "Click <a href='https://github.com/keeperaft/personalaltwebsite/'>here</a> to view the repository in GitHub." %}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "Developer Information and Message" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+			{% trans "Hello! I used to be a professional software engineer, dealing with web and mobile technologies before becoming an ALT. I've switched between front-end (client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in various projects during my software engineering career." %}
+			</p>
+			<p>
+			{% trans "After becoming an ALT, I noticed that a lot of things would become way easier and much more convenient if there was a centralized system managing everything, and automating things that can be automated." %}
+			</p>
+			<p>
+			{% trans "Thank you for taking the time to read this. I hope that this system is helpful!" %}
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			License
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+			MIT License
+
+			Copyright (c) 2019 Keeperaft
+
+			Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+			The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+			THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "System Specifications" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<ul>
+				<li>Python v3.5.2</li>
+				<li>Django v1.11.20</li>
+				<li>Bootstrap v3.3.7</li>
+				<li>jQuery v3.2.1</li>
+			</ul>
+		</div>
+	</div>
+{% endblock content %}

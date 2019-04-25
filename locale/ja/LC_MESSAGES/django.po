@@ -1,0 +1,1987 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-25 00:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: home/constants.py:52
+msgid ""
+"There are no routes available for the selected school year. Please proceed "
+"to the School Years section to add one."
+msgstr "この学年は学校に行くルートがありません。"
+
+#: home/constants.py:53
+msgid ""
+"This action is not possible if there are no school years available. Please "
+"add a school year first by clicking \"+ Add New School Year\"."
+msgstr ""
+"学年の情報がありません。「学年」のタブで「＋別の学年を追加」で学年を追加して"
+"下さい。"
+
+#: home/constants.py:54
+msgid "Login successful. Welcome back!"
+msgstr "ログイン成功。"
+
+#: home/constants.py:55
+msgid "The username or password is incorrect. Please try again."
+msgstr "ユーザー名またはパスワードが正しくありません。"
+
+#: home/constants.py:56
+msgid "Logout successful."
+msgstr "ログアウト成功。"
+
+#: home/constants.py:57
+msgid "Your password was successfully updated!"
+msgstr "パスワードを変更しました。"
+
+#: home/constants.py:58
+msgid "Please read the Password Notes."
+msgstr "パスワードを変更のエラーがあってしまいました。"
+
+#: home/constants.py:60 templates/home/index.html:7
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: home/constants.py:61
+msgid "Timesheets"
+msgstr "タイムシート"
+
+#: home/constants.py:62
+msgid "Reimbursements"
+msgstr "弁償"
+
+#: home/constants.py:63
+msgid "Settings"
+msgstr "設定"
+
+#: home/constants.py:64 templates/home/about.html:6
+#: templates/home/about.html:20
+msgid "About"
+msgstr "PAWについて"
+
+#: lessons/constants.py:58
+msgid "Activity"
+msgstr "活動"
+
+#: lessons/constants.py:59 templates/lessons/view_activity.html:32
+msgid "Description"
+msgstr "説明"
+
+#: lessons/constants.py:60
+msgid "Activity Skill Type"
+msgstr "活動スキルタイプ"
+
+#: lessons/constants.py:61 lessons/constants.py:202 paw/constants/base.py:28
+#: templates/home/dashboard-day-view.html:102
+#: templates/lessons/lesson-plan-information.html:27
+#: templates/lessons/view-activity-table.html:7
+#: templates/lessons/view_activity.html:50
+msgid "Materials"
+msgstr "教材"
+
+#: lessons/constants.py:62
+msgid "Activity File"
+msgstr "プリント"
+
+#: lessons/constants.py:63 lessons/constants.py:71 lessons/constants.py:77
+#: schedules/constants.py:73 templates/home/dashboard-day-view.html:80
+#: templates/home/index.html:54 templates/lessons/flashcard-table.html:13
+#: templates/lessons/handouts-worksheets.html:27
+#: templates/lessons/target-language-table.html:12
+#: templates/schedules/view_schedule.html:231
+#: templates/schedules/view_section.html:49
+msgid "Notes"
+msgstr "メモ"
+
+#: lessons/constants.py:64
+msgid "Book Name"
+msgstr "本名"
+
+#: lessons/constants.py:65
+msgid "Short Name"
+msgstr "短い本名"
+
+#: lessons/constants.py:66 templates/lessons/lesson_plans.html:26
+#: templates/schedules/view_section.html:116
+msgid "Book"
+msgstr "本"
+
+#: lessons/constants.py:67
+msgid "Title"
+msgstr "タイトル"
+
+#: lessons/constants.py:68 templates/lessons/lesson-plan-information.html:26
+msgid "Activity Name"
+msgstr "活動"
+
+#: lessons/constants.py:69
+msgid "Activity Portion Type"
+msgstr "部分"
+
+#: lessons/constants.py:70 templates/lessons/flashcard-table.html:10
+#: templates/lessons/view-activity-table.html:6
+msgid "Name"
+msgstr "名前"
+
+#: lessons/constants.py:72 templates/lessons/target-language-table.html:10
+msgid "Target Language"
+msgstr "単文"
+
+#: lessons/constants.py:73 templates/lessons/target-language-table.html:11
+msgid "Color"
+msgstr "色"
+
+#: lessons/constants.py:74 templates/lessons/generate_flashcard.html:26
+msgid "Flashcard Border"
+msgstr "ページ罫線"
+
+#: lessons/constants.py:75
+msgid "Picture"
+msgstr "画像"
+
+#: lessons/constants.py:76
+msgid "Label"
+msgstr "文字"
+
+#: lessons/constants.py:78 templates/lessons/flashcard-table.html:11
+msgid "Orientation"
+msgstr "向き"
+
+#: lessons/constants.py:79
+msgid "Flashcard Type"
+msgstr "フラッシュカードタイプ"
+
+#: lessons/constants.py:90
+msgid "Generic/Other"
+msgstr "一般"
+
+#: lessons/constants.py:91 templates/lessons/lesson-plan-information.html:30
+#: templates/schedules/view_section.html:241
+#: templates/schedules/view_section_activities.html:42
+msgid "Greeting"
+msgstr "グリーティング"
+
+#: lessons/constants.py:92 templates/lessons/lesson-plan-information.html:36
+#: templates/schedules/view_section.html:242
+#: templates/schedules/view_section_activities.html:43
+msgid "Warmup"
+msgstr "ウオームアップ"
+
+#: lessons/constants.py:93 templates/lessons/lesson-plan-information.html:42
+#: templates/schedules/view_section.html:243
+#: templates/schedules/view_section_activities.html:44
+msgid "Presentation"
+msgstr "プレゼンテーション"
+
+#: lessons/constants.py:94 templates/lessons/lesson-plan-information.html:48
+#: templates/schedules/view_section.html:244
+#: templates/schedules/view_section_activities.html:45
+msgid "Practice"
+msgstr "プラックティス"
+
+#: lessons/constants.py:95 templates/lessons/lesson-plan-information.html:54
+#: templates/schedules/view_section.html:245
+#: templates/schedules/view_section_activities.html:46
+msgid "Production"
+msgstr "プロダクション"
+
+#: lessons/constants.py:96 templates/lessons/lesson-plan-information.html:60
+#: templates/schedules/view_section.html:246
+#: templates/schedules/view_section_activities.html:47
+msgid "Cooldown"
+msgstr "クールダウン"
+
+#: lessons/constants.py:97 templates/lessons/lesson-plan-information.html:66
+#: templates/schedules/view_section.html:247
+#: templates/schedules/view_section_activities.html:48
+msgid "Assessment"
+msgstr "アセスメント"
+
+#: lessons/constants.py:199
+msgid "+ Add New Book"
+msgstr "+ 別の本を追加"
+
+#: lessons/constants.py:201
+msgid "Books"
+msgstr "本"
+
+#: lessons/constants.py:203 templates/home/dashboard-day-view.html:116
+#: templates/lessons/lesson-flashcards.html:12
+msgid "Flashcards"
+msgstr "フラッシュカード"
+
+#: lessons/constants.py:204 templates/home/dashboard-day-view.html:128
+msgid "Handouts"
+msgstr "プリント"
+
+#: lessons/constants.py:205 templates/lessons/generic_activities.html:7
+#: templates/lessons/generic_activities.html:21
+msgid "Generic Activities"
+msgstr "一般活動"
+
+#: lessons/constants.py:206 templates/lessons/lesson_plans.html:7
+msgid "Lesson Plans"
+msgstr "本の授業計画を管理"
+
+#: lessons/constants.py:207 templates/lessons/flashcard_manager.html:7
+#: templates/lessons/flashcard_manager.html:26
+msgid "Flashcard Manager"
+msgstr "フラッシュカードを管理"
+
+#: lessons/constants.py:208 templates/lessons/generic_lesson_plans.html:7
+msgid "Generic Lesson Plans"
+msgstr "一般授業計画を管理"
+
+#: lessons/constants.py:210
+msgid "A new book has been successfully added."
+msgstr "本を追加しました。"
+
+#: lessons/constants.py:211
+msgid "The book has been successfully edited."
+msgstr "本を編集しました。"
+
+#: lessons/constants.py:212
+msgid "A new lesson has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:213
+msgid "The lesson has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:214
+msgid "The activity has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:215
+msgid "The activity has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:216
+msgid "The new file has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:217
+msgid "The file has been successfully deleted."
+msgstr "削除しました。"
+
+#: lessons/constants.py:218
+msgid "A new lesson plan has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:219
+msgid "The lesson plan has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:220
+msgid "The activity file has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:221
+msgid "The flashcard has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:222
+msgid "The flashcard has been successfully deleted."
+msgstr "削除しました。"
+
+#: lessons/constants.py:223
+msgid "The flashcard has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:224
+msgid "The specified lesson has been successfully deleted."
+msgstr "削除しました。"
+
+#: lessons/constants.py:225
+msgid "The target language has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:226
+msgid "The target language has been successfully deleted."
+msgstr "削除しました。"
+
+#: lessons/constants.py:227
+msgid "The target language has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:228
+msgid "The topic has been successfully added."
+msgstr "追加しました。"
+
+#: lessons/constants.py:229
+msgid "The topic has been successfully deleted."
+msgstr "削除しました。"
+
+#: lessons/constants.py:230
+msgid "The topic has been successfully edited."
+msgstr "編集しました。"
+
+#: lessons/constants.py:232
+msgid ""
+"There was an error while adding a new book. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:233
+msgid ""
+"There was an error while editing the book. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:234
+msgid ""
+"There was an error while adding a new lesson. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:235
+msgid ""
+"There was an error while editing the lesson. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:236
+msgid ""
+"There was an error while adding the activity. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:237
+msgid ""
+"There was an error while editing the activity. Please be sure that the "
+"fields are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:238
+msgid ""
+"There was an error while adding the new file. Please make sure that the file "
+"is not corrupt."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:239
+msgid "There was an error while deleting the file."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:240
+msgid ""
+"There was an error while adding the lesson plan. Please be sure that the "
+"fields are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:241
+msgid ""
+"There was an error while editing the lesson plan. Please be sure that the "
+"fields are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:242
+msgid "There was an error in adding the new flashcard."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:243
+msgid "There was an error in adding the new target language."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:244
+msgid ""
+"There was an error while adding a new topic. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:245
+msgid ""
+"There was an error while editing the topic. Please be sure that the fields "
+"are correct."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:246
+msgid "There was an error while deleting the topic."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: lessons/constants.py:247
+msgid "There are no activities found."
+msgstr "活動がありません。"
+
+#: lessons/filefield.py:36
+#, python-format
+msgid ""
+"Please keep filesize under %(max_upload_size)s. Current filesize "
+"%(file_size)s"
+msgstr ""
+"ファイルサイズの限界は%(max_upload_size)sです。今アップしたのは%(file_size)s"
+"です。"
+
+#: lessons/views.py:233
+#, python-format
+msgid "%(course_name)s, Lesson %(lesson_number)d "
+msgstr "%(course_name)sのレッスン%(lesson_number)d"
+
+#: paw/constants/base.py:26
+msgid "School Years"
+msgstr "学年"
+
+#: paw/constants/base.py:27
+msgid "Home"
+msgstr "ホーム"
+
+#: paw/constants/base.py:29
+msgid "Schedules"
+msgstr "スケジュール"
+
+#: paw/constants/base.py:30
+msgid "Accounts"
+msgstr ""
+
+#: paw/constants/base.py:31
+msgid "Login"
+msgstr "ログイン"
+
+#: paw/constants/base.py:33
+msgid ""
+"You are currently not logged in. Please login using with the credentials "
+"provided by the administrator and try again."
+msgstr ""
+
+#: paw/constants/models.py:4
+msgid "Administrator (ALT)"
+msgstr "ALT"
+
+#: paw/constants/models.py:5
+msgid "School (ES/JHS/HS)"
+msgstr "小学校・中学校"
+
+#: paw/constants/models.py:6
+msgid "Educational Company"
+msgstr "会社"
+
+#: paw/constants/models.py:8
+msgid "Book-Free Activities -- These don't require the book."
+msgstr "本を使わなくてもいい活動"
+
+#: paw/constants/models.py:9
+msgid "Book-Bound Activities -- These require the book."
+msgstr "本を使う活動"
+
+#: paw/constants/models.py:10
+msgid "Vocabulary Practice"
+msgstr "単語の練習"
+
+#: paw/constants/models.py:11
+msgid "Speaking Practice"
+msgstr "会話の練習"
+
+#: paw/constants/models.py:12
+msgid "Listening Practice"
+msgstr "聞くの練習"
+
+#: paw/constants/models.py:13
+msgid "Other Skills (e.g.: song, dance)"
+msgstr "他の練習"
+
+#: paw/constants/models.py:14
+msgid "Portrait"
+msgstr "縦"
+
+#: paw/constants/models.py:15
+msgid "Landscape"
+msgstr "横"
+
+#: paw/constants/models.py:16
+msgid "Flashcard with picture and label"
+msgstr "画像と文字"
+
+#: paw/constants/models.py:17
+msgid "Flashcard with picture only"
+msgstr "画像だけ"
+
+#: paw/constants/models.py:18
+msgid "Two pages: front (picture) and back (label)"
+msgstr "第１ページ（画像）、第２ページ（文字）"
+
+#: paw/constants/models.py:19
+msgid "Red"
+msgstr "赤"
+
+#: paw/constants/models.py:20
+msgid "Blue"
+msgstr "青"
+
+#: paw/constants/models.py:22
+msgid "Elementary School"
+msgstr "小学校"
+
+#: paw/constants/models.py:23
+msgid "Junior High School"
+msgstr "中学校"
+
+#: paw/constants/models.py:24
+msgid "High School"
+msgstr "高校"
+
+#: paw/settings.py:148
+msgid "English"
+msgstr "英語"
+
+#: paw/settings.py:149
+msgid "Japanese"
+msgstr "日本語"
+
+#: schedules/constants.py:70
+msgid "This schedule type is used on:"
+msgstr "日課表の使う日"
+
+#: schedules/constants.py:71
+msgid "Period Name"
+msgstr "番号"
+
+#: schedules/constants.py:72 templates/schedules/view_schedule.html:176
+msgid "Teacher"
+msgstr "担任の先生"
+
+#: schedules/constants.py:74 templates/schedules/view_section.html:48
+msgid "Student Count"
+msgstr "学徒数"
+
+#: schedules/constants.py:75 templates/lessons/courses.html:24
+msgid "Lesson Number"
+msgstr "番号"
+
+#: schedules/constants.py:76
+msgid "Hour Number"
+msgstr "時間目"
+
+#: schedules/constants.py:77
+msgid "Period Profile"
+msgstr "日課表"
+
+#: schedules/constants.py:85
+msgid "Normal days"
+msgstr "普通の日"
+
+#: schedules/constants.py:86
+msgid "Mondays"
+msgstr "毎月曜日"
+
+#: schedules/constants.py:87
+msgid "Wednesdays"
+msgstr "毎水曜日"
+
+#: schedules/constants.py:88
+msgid "Special days"
+msgstr "特別な日"
+
+#: schedules/constants.py:89
+msgid "Saturdays"
+msgstr "土曜日"
+
+#: schedules/constants.py:91
+msgid "This section does not exist."
+msgstr ""
+
+#: schedules/constants.py:92
+msgid "Please select a school from the dropdown."
+msgstr "学校を選択して下さい。"
+
+#: schedules/constants.py:93
+msgid "Please select a book from the dropdown."
+msgstr "本を選択して下さい。"
+
+#: schedules/constants.py:94
+msgid "Please select the correct values for school, school year, and month."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schedules/constants.py:95
+msgid "Adding a new class without its section is not possible."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schedules/constants.py:96
+msgid "Users can add a maximum of 8 sections."
+msgstr "組の最大数に達しました。"
+
+#: schedules/constants.py:97
+msgid "Users can add a maximum of 7 period profiles."
+msgstr "日課表の最大数に達しました。"
+
+#: schedules/constants.py:98
+msgid "Users can add a maximum of 10 time periods."
+msgstr "時限の最大数に達しました。"
+
+#: schedules/constants.py:100
+msgid "The class has been successfully deleted."
+msgstr "削除しました。"
+
+#: schedules/constants.py:101
+msgid "The period profile for the specified day has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:102
+msgid "The section has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:103
+msgid "The section count has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:104
+msgid "The book has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:105
+msgid "The period profile has been successfully added."
+msgstr "追加しました。"
+
+#: schedules/constants.py:106
+msgid "The period profile has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:107
+msgid "The class has been successfully added to the schedule."
+msgstr "追加しました。"
+
+#: schedules/constants.py:108
+msgid "The lesson number and hour number has been successfully updated."
+msgstr "編集しました。"
+
+#: schedules/constants.py:109
+msgid ""
+"The specified book has been successfully assigned to the specified year "
+"level."
+msgstr "成功しました。"
+
+#: schedules/constants.py:110
+msgid ""
+"The specified book to the specified year level has been successfully re-"
+"assigned."
+msgstr "成功しました。"
+
+#: schedules/constants.py:111
+msgid ""
+"The specified book to the specified year level has been successfully deleted."
+msgstr "削除しました。"
+
+#: schedules/constants.py:112
+msgid "The specified section has been successfully deleted."
+msgstr "削除しました。"
+
+#: schedules/constants.py:113
+msgid "The section could not be deleted because it is the last section."
+msgstr "最後の組ですので、削除で着ません。"
+
+#: schedules/constants.py:114
+msgid "The section has been successfully added."
+msgstr "追加しました。"
+
+#: schedules/constants.py:116 templates/schedules/schedule_manager.html:7
+#: templates/schedules/schedule_manager.html:18
+msgid "Schedule Manager"
+msgstr "時間割を管理"
+
+#: schedules/constants.py:117 templates/schedules/sections_courses.html:7
+#: templates/schedules/sections_courses.html:19
+msgid "Year Level Manager"
+msgstr "等級を管理"
+
+# Unsure translation
+#: schedules/constants.py:118 templates/schedules/school_periods.html:7
+#: templates/schedules/school_periods.html:32
+msgid "School Periods"
+msgstr "日課表"
+
+#: schedules/constants.py:138
+msgid "Normal Schedule"
+msgstr "普通の日課表"
+
+#: schedules/constants.py:139
+msgid "Monday Schedule"
+msgstr "月曜日の日課表"
+
+#: schedules/constants.py:140
+msgid "Wednesday Schedule"
+msgstr "水曜日の日課表"
+
+#: schoolyears/constants.py:24
+msgid "Start date"
+msgstr "開始日付"
+
+#: schoolyears/constants.py:25
+msgid "End date"
+msgstr "終了日付"
+
+#: schoolyears/constants.py:26
+msgid "Means of Travel"
+msgstr "路線"
+
+#: schoolyears/constants.py:27
+msgid "Start time"
+msgstr "開始時刻"
+
+#: schoolyears/constants.py:28
+msgid "End time"
+msgstr "終了時刻"
+
+#: schoolyears/constants.py:29
+msgid "Cost"
+msgstr "運賃"
+
+#: schoolyears/constants.py:30
+msgid "Station Name"
+msgstr "駅名"
+
+#: schoolyears/constants.py:31
+msgid "Round Trip/One Way"
+msgstr "往復・一方通行"
+
+#: schoolyears/constants.py:32
+msgid "Is it an ALT Meeting?"
+msgstr "ALT ミーティングですか？"
+
+#: schoolyears/constants.py:33
+msgid "Total Cost (One Way)"
+msgstr "運賃（一方通行）"
+
+#: schoolyears/constants.py:34
+msgid "Route"
+msgstr "ルート"
+
+#: schoolyears/constants.py:35
+msgid "Source"
+msgstr "出発地"
+
+#: schoolyears/constants.py:36
+msgid "Destination"
+msgstr "目的地"
+
+#: schoolyears/constants.py:37
+msgid "Travel Method"
+msgstr "路線"
+
+#: schoolyears/constants.py:79
+msgid "TBA"
+msgstr "未発表"
+
+#: schoolyears/constants.py:80
+msgid "ALT Meeting"
+msgstr "ALT ミーティング"
+
+#: schoolyears/constants.py:81
+msgid "Work day"
+msgstr "ワークデー"
+
+#: schoolyears/constants.py:112
+msgid "+ Add New School Year"
+msgstr "+ 別の学年を追加"
+
+#: schoolyears/constants.py:113
+msgid "School Name"
+msgstr "英語名"
+
+#: schoolyears/constants.py:114
+msgid "Kanji Name"
+msgstr "名前"
+
+#: schoolyears/constants.py:115
+#: templates/schoolyears/school-basic-information.html:134
+msgid "School Type"
+msgstr "小学校・中学校"
+
+#: schoolyears/constants.py:117
+msgid "End date must be later than Start date."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schoolyears/constants.py:118
+msgid "There is an error in adding the new school."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schoolyears/constants.py:119
+msgid "There is an error in adding the home station."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schoolyears/constants.py:120
+msgid "There is an error in adding the route."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schoolyears/constants.py:121
+msgid "The value of the cost must be at least 0."
+msgstr "情報の保存中にエラーが発生しました。"
+
+#: schoolyears/constants.py:122
+msgid "A new school year has been successfully added."
+msgstr "学年を追加しました。"
+
+#: schoolyears/constants.py:123
+msgid "The school year has been successfully edited."
+msgstr "学年を編集しました。"
+
+#: schoolyears/constants.py:124
+msgid "The school color has been successfully edited."
+msgstr "学校の色を編集しました。"
+
+#: schoolyears/constants.py:125
+msgid "A new school has been successfully added."
+msgstr "学校を追加しました。"
+
+#: schoolyears/constants.py:126
+msgid "Calendar information has been saved."
+msgstr "カレンダーの情報を保存しました。"
+
+#: schoolyears/constants.py:127
+msgid "The home station has been saved."
+msgstr "保存しました。"
+
+#: schoolyears/constants.py:128
+msgid "The new route has been successfully added."
+msgstr "追加しました。"
+
+#: schoolyears/constants.py:129
+msgid "The route has been successfully updated."
+msgstr "編集しました。"
+
+#: schoolyears/constants.py:130
+msgid "The station's name has been successfully updated."
+msgstr "編集しました。"
+
+#: schoolyears/constants.py:131
+msgid "Users can add a maximum of 6 schools."
+msgstr "学校の最大数に達しました。"
+
+#: templates/404.html:6
+msgid ""
+"Error 404: Page not found.<br/>Please click <a href='/'>here</a> to return "
+"to the dashboard."
+msgstr ""
+"エラー４０４：ページを見つかりません。<br/>ダッシュボードページに戻るに<a "
+"href='/'>ここ</a>をクリックして下さい。"
+
+#: templates/500.html:6
+msgid ""
+"Error 500: Internal server error.<br/>Please click <a href='/'>here</a> to "
+"return to the dashboard."
+msgstr ""
+"エラー５００：内部サーバーエラー。<br/>ダッシュボードページに戻るに<a "
+"href='/'>ここ</a>をクリックして下さい。"
+
+#: templates/base.html:19 templates/base.html:130
+msgid "Personal ALT Website"
+msgstr "パーソナル ALT ウェブサイト"
+
+#: templates/base.html:48
+#: templates/schoolyears/edit-schedule-instructions.html:13
+#: templates/schoolyears/school-basic-information.html:28
+#: templates/schoolyears/school-route-information.html:12
+msgid "Show"
+msgstr "▼"
+
+#: templates/base.html:49
+msgid "Hide"
+msgstr "▲"
+
+#: templates/base.html:51 templates/lessons/lesson_plans.html:45
+#: templates/schedules/schedule_manager.html:45
+#: templates/schedules/schedule_manager.html:53
+#: templates/schedules/school_periods.html:64
+#: templates/schedules/sections_courses.html:50
+msgid "Loading"
+msgstr "読み込み中"
+
+#: templates/base.html:52
+msgid "Close"
+msgstr "閉じる"
+
+#: templates/base.html:53
+#: templates/schoolyears/edit-schedule-main-calendar.html:18
+msgid "Save"
+msgstr "保存"
+
+#: templates/base.html:55
+msgid "January"
+msgstr "1月"
+
+#: templates/base.html:56
+msgid "February"
+msgstr "2月"
+
+#: templates/base.html:57
+msgid "March"
+msgstr "3月"
+
+#: templates/base.html:58
+msgid "April"
+msgstr "4月"
+
+#: templates/base.html:59
+msgid "May"
+msgstr "5月"
+
+#: templates/base.html:60
+msgid "June"
+msgstr "6月"
+
+#: templates/base.html:61
+msgid "July"
+msgstr "7月"
+
+#: templates/base.html:62
+msgid "August"
+msgstr "8月"
+
+#: templates/base.html:63
+msgid "September"
+msgstr "9月"
+
+#: templates/base.html:64
+msgid "October"
+msgstr "10月"
+
+#: templates/base.html:65
+msgid "November"
+msgstr "11月"
+
+#: templates/base.html:66
+msgid "December"
+msgstr "12月"
+
+#: templates/base.html:83
+msgid "Su"
+msgstr "日"
+
+#: templates/base.html:83
+msgid "Mo"
+msgstr "月"
+
+#: templates/base.html:83
+msgid "Tu"
+msgstr "火"
+
+#: templates/base.html:83
+msgid "We"
+msgstr "水"
+
+#: templates/base.html:83
+msgid "Th"
+msgstr "木"
+
+#: templates/base.html:83
+msgid "Fr"
+msgstr "金"
+
+#: templates/base.html:83
+msgid "Sa"
+msgstr "土"
+
+#: templates/base.html:139
+msgid "Welcome"
+msgstr "ようこそ"
+
+#: templates/base.html:182
+msgid ""
+"This is just a demo at the moment. Note that any changes made will be reset."
+msgstr "これはデモ版ですので、1日1回自動的にデータベースをリセットします。"
+
+#: templates/home/about.html:25
+msgid ""
+"PAW stands for Personal ALT Website, whereas ALT stants for Assistant "
+"Language Teacher. It is a tool used to help make the lives of ALTs even "
+"easier by having a centralized system managing everything. While the current "
+"system is tailored to ALTs, it is possible to modify it to suit the needs of "
+"teachers in general."
+msgstr ""
+"PAWは「(P)パーソナル(A)ALT(W)ウェブサイト」の略称です。ALTは英語教師の「(A)ア"
+"シスタント(L)ラングエッジ(T)ティーチャー」の略称です。「Paw」は日本語で「肉"
+"球」なので、アイコンは肉球になります。PAWは英語教師の生活を簡単にするサイトで"
+"す。英語教師のために作りましたけど、一般的な教師のために修正することができま"
+"す。"
+
+#: templates/home/about.html:31
+msgid "Feature Summary and Overview"
+msgstr "機能概要"
+
+#: templates/home/about.html:37
+msgid ""
+"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/"
+"TiPp5Y76HOM\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
+"media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+msgstr ""
+"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/"
+"K86SlacCi_c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
+"media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+
+#: templates/home/about.html:44
+msgid "Teaching Material Management:"
+msgstr "教材を管理"
+
+#: templates/home/about.html:58
+msgid "Class Schedule Management:"
+msgstr "スケジュールを管理"
+
+#: templates/home/about.html:73
+msgid "School Year Information Management:"
+msgstr "学年情報を管理"
+
+#: templates/home/about.html:86
+msgid "Bugs and Enhancements"
+msgstr "バグと機能"
+
+#: templates/home/about.html:92
+msgid ""
+"If you find any bugs, or found any improperly tagged flashcards, you can "
+"report it "
+msgstr "バグか日本語かフラッシュカードのミスが見つかったら、"
+
+#: templates/home/about.html:92 templates/home/about.html:93
+msgid "here."
+msgstr "ここでクリックして下さい。"
+
+#: templates/home/about.html:93
+msgid "If you would like to suggest new features, you can fo it "
+msgstr "新しい機能が示唆したいなら、"
+
+#: templates/home/about.html:94
+msgid ""
+"Click <a href='https://github.com/keeperaft/personalaltwebsite/'>here</a> to "
+"view the repository in GitHub."
+msgstr ""
+"GitHubでソースコードを読みたい方のは<a href=\"https://github.com/keeperaft/"
+"personalaltwebsite/\">こちらです</a>。"
+
+#: templates/home/about.html:100
+msgid "Developer Information and Message"
+msgstr "プログラマー情報とメッセージ"
+
+#: templates/home/about.html:106
+msgid ""
+"Hello! I used to be a professional software engineer, dealing with web and "
+"mobile technologies before becoming an ALT. I've switched between front-end "
+"(client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in "
+"various projects during my software engineering career."
+msgstr ""
+"こんにちは、キープと申します。ALTになる前の仕事はウェブとモバイルのソフトウェ"
+"アエンジニアでした。フロントエンドとバックエンドは両方やったことありました。"
+
+#: templates/home/about.html:109
+msgid ""
+"After becoming an ALT, I noticed that a lot of things would become way "
+"easier and much more convenient if there was a centralized system managing "
+"everything, and automating things that can be automated."
+msgstr ""
+"ALTになった後で簡単にできる事がたくさんありますから、このシステムを作りまし"
+"た。"
+
+#: templates/home/about.html:112
+msgid ""
+"Thank you for taking the time to read this. I hope that this system is "
+"helpful!"
+msgstr "お時間を割いていただきありがとうございます。よろしくお願い致します。"
+
+#: templates/home/about.html:118
+msgid "System Specifications"
+msgstr "仕様"
+
+#: templates/home/dashboard-day-view.html:7
+#, python-format
+msgid "%(day_text)s, "
+msgstr "<span class='hidden'>%(day_text)s</span>"
+
+#: templates/home/dashboard-day-view.html:7
+#: templates/schedules/view_schedule.html:133
+#: templates/schedules/view_schedule.html:155
+msgid "<span class=\"japanese-day\"></span>"
+msgstr "日"
+
+#: templates/home/dashboard-day-view.html:21 templates/home/index.html:43
+#: templates/lessons/lesson-plan-information.html:18
+msgid "Print"
+msgstr "印刷"
+
+#: templates/home/dashboard-day-view.html:48
+#: templates/home/dashboard-day-view.html:55
+msgid "Period"
+msgstr "時限"
+
+#: templates/home/dashboard-day-view.html:49
+msgid "Class"
+msgstr "組"
+
+#: templates/home/dashboard-day-view.html:50
+#: templates/home/dashboard-day-view.html:72 templates/lessons/courses.html:31
+#: templates/lessons/lesson-header.html:8
+#: templates/lessons/lesson-header.html:15
+#: templates/lessons/lesson_plans.html:42
+#: templates/schedules/view_schedule.html:177
+#: templates/schedules/view_schedule.html:215
+#: templates/schedules/view_section_period.html:71
+msgid "Lesson"
+msgstr "レッスン"
+
+#: templates/home/dashboard-day-view.html:72
+#: templates/lessons/lesson-plan-information.html:10
+#: templates/schedules/view_schedule.html:215
+#: templates/schedules/view_section_period.html:71
+msgid "Hour"
+msgstr "<span class='hidden'></span>"
+
+#: templates/home/dashboard-day-view.html:87
+msgid "Free"
+msgstr "自由時間"
+
+#: templates/home/dashboard-day-view.html:97
+#: templates/lessons/lesson-main-header.html:7
+#: templates/schedules/view_section_period.html:66
+msgid "Lesson Information"
+msgstr "レッスンの情報"
+
+#: templates/home/dashboard-day-view.html:140
+#: templates/lessons/generic_activities.html:27
+msgid "Activities"
+msgstr "活動"
+
+#: templates/home/dashboard-day-view.html:158 templates/home/index.html:125
+msgid "There are no scheduled classes for this day."
+msgstr "授業の予定が入っていません"
+
+#: templates/home/index.html:36
+msgid "This Week"
+msgstr "今週のスケジュール"
+
+#: templates/home/index.html:51 templates/schedules/view_section.html:240
+#: templates/schedules/view_section_activities.html:41
+msgid "Date"
+msgstr "日付"
+
+#: templates/home/index.html:52 templates/schedules/schedule_manager.html:42
+#: templates/schedules/school_periods.html:58
+#: templates/schedules/sections_courses.html:44
+msgid "School"
+msgstr "学校"
+
+#: templates/home/index.html:53
+#: templates/schoolyears/edit-schedule-main-calendar.html:10
+msgid "Schedule"
+msgstr "スケジュール"
+
+#: templates/lessons/add-course-modal.html:6
+msgid "Add Book"
+msgstr "本を追加"
+
+#: templates/lessons/courses.html:7
+msgid "Book:"
+msgstr "本:"
+
+#: templates/lessons/courses.html:25
+msgid "Lesson Title"
+msgstr "表題"
+
+#: templates/lessons/courses.html:26 templates/lessons/flashcard-table.html:14
+#: templates/lessons/handouts-worksheets.html:28
+#: templates/lessons/target-language-table.html:13
+#: templates/lessons/view-activity-table.html:8
+#: templates/schedules/school-periods-period-view.html:25
+#: templates/schedules/sections_courses.html:79
+#: templates/schedules/view_schedule.html:178
+#: templates/schedules/view_section.html:50
+#: templates/schedules/view_section.html:117
+msgid "Actions"
+msgstr "行動"
+
+#: templates/lessons/courses.html:39
+#: templates/lessons/view-activity-table.html:25
+msgid "View"
+msgstr "見る"
+
+#: templates/lessons/courses.html:48
+msgid ""
+"There are no lessons available. <br/> Would you like to <a class=\"cursor-"
+"pointer\" data-toggle=\"modal\" data-target=\"#add-lesson\" id=\"add-lesson-"
+"from-content\">add a new lesson?</a>"
+msgstr "レッスンがありません。"
+
+#: templates/lessons/courses.html:56 templates/lessons/lesson_plans.html:77
+msgid ""
+"There are no books available. <br/> Would you like to <a class=\"cursor-"
+"pointer\" data-toggle=\"modal\" data-target=\"#add-course\" id=\"add-course-"
+"from-content\">add a new book?</a>"
+msgstr "本がありません。"
+
+#: templates/lessons/flashcard-table.html:12
+msgid "Layout"
+msgstr "設計"
+
+#: templates/lessons/flashcard-table.html:30
+#: templates/lessons/handouts-worksheets.html:50
+#: templates/lessons/target-language-table.html:40
+msgid "Download"
+msgstr "ダウンロード"
+
+#: templates/lessons/flashcard_manager.html:35
+#: templates/lessons/generate_target_language.html:8
+msgid "Generate Target Language"
+msgstr "単文を生成"
+
+#: templates/lessons/flashcard_manager.html:43
+#: templates/lessons/generate_flashcard.html:8
+msgid "Generate Flashcard"
+msgstr "フラッシュカードを生成"
+
+#: templates/lessons/flashcard_manager.html:49
+msgid "Search Term"
+msgstr "検索語"
+
+#: templates/lessons/flashcard_manager.html:59
+msgid "Search"
+msgstr "検索"
+
+#: templates/lessons/flashcard_manager.html:69
+msgid "Flashcard Search Results"
+msgstr "フラッシュカードの検索結果"
+
+#: templates/lessons/flashcard_manager.html:69
+#: templates/lessons/flashcard_manager.html:84
+msgid "Result(s)"
+msgstr "件"
+
+#: templates/lessons/flashcard_manager.html:77
+msgid "Your flashcard search yielded no results for the following search term:"
+msgstr "<span class='hidden'></span>"
+
+#: templates/lessons/flashcard_manager.html:77
+#: templates/lessons/flashcard_manager.html:92
+msgid "<span class='japanese-no-results'></span>"
+msgstr "に一致する情報は見つかりませんでした。"
+
+#: templates/lessons/flashcard_manager.html:84
+msgid "Target Language Search Results"
+msgstr "単文の検索結果"
+
+#: templates/lessons/flashcard_manager.html:92
+msgid ""
+"Your target language search yielded no results for the following search term:"
+msgstr "<span class='hidden'></span>"
+
+#: templates/lessons/generate_flashcard.html:34
+#: templates/lessons/generate_target_language.html:21
+msgid "Generate"
+msgstr "生成"
+
+#: templates/lessons/generic_activities.html:35
+msgid ""
+"There are no activities available. <br/> Would you like to <a class=\"cursor-"
+"pointer\" data-toggle=\"modal\" data-target=\"#add-generic-activity\">add a "
+"new activity?</a>"
+msgstr "活動がありません。"
+
+#: templates/lessons/generic_lesson_plans.html:23
+msgid "Topic Selection"
+msgstr "話題選択"
+
+#: templates/lessons/generic_lesson_plans.html:28
+msgid "Topic"
+msgstr "話題"
+
+#: templates/lessons/generic_lesson_plans.html:47
+#: templates/lessons/lesson_plans.html:54
+msgid "Check Lesson Plans"
+msgstr "授業計画を管理"
+
+#: templates/lessons/generic_lesson_plans.html:62
+#: templates/lessons/lesson_plans.html:69
+msgid ""
+"There are no lesson plans available. <br/> Would you like to <a class="
+"\"cursor-pointer\" data-toggle=\"modal\" data-target=\"#add-lesson-plan\" id="
+"\"add-lesson-plan-from-content\">add a new lesson plan?</a>"
+msgstr "授業計画がありません。"
+
+#: templates/lessons/generic_lesson_plans.html:70
+msgid "There are no topics available."
+msgstr "活動がありません。"
+
+#: templates/lessons/handouts-worksheets.html:6
+msgid "Handouts and Worksheets"
+msgstr "プリント"
+
+#: templates/lessons/handouts-worksheets.html:17
+#: templates/lessons/lesson-flashcards.html:21
+#: templates/lessons/lesson-target-languages.html:20
+msgid "Download All"
+msgstr "全部をダウンロード"
+
+#: templates/lessons/handouts-worksheets.html:25
+msgid "Filename"
+msgstr "ファイル名"
+
+#: templates/lessons/handouts-worksheets.html:26
+msgid "Size"
+msgstr "サイズ"
+
+#: templates/lessons/handouts-worksheets.html:36
+msgid ""
+"This file is linked to another activity, so deleting this file would delete "
+"its presence in the other activity as well."
+msgstr "別の活動もこのファイルを使っています。"
+
+#: templates/lessons/handouts-worksheets.html:59
+msgid "There are no files available for this activity."
+msgstr "この活動はプリントがありません。<br/>"
+
+#: templates/lessons/lesson-activities.html:8
+msgid "Book Activities"
+msgstr "本を使う活動"
+
+#: templates/lessons/lesson-activities.html:19
+msgid ""
+"There are no activities available from the book for this lesson. <br/> Would "
+"you like to"
+msgstr "このレッスンは本を使う活動がありません。<br/>"
+
+#: templates/lessons/lesson-activities.html:19
+#: templates/lessons/lesson-activities.html:37
+msgid "add a new activity?"
+msgstr "活動を追加しましょうか？"
+
+#: templates/lessons/lesson-activities.html:26
+msgid "Free Activities"
+msgstr "本を使わなくてもいい活動"
+
+#: templates/lessons/lesson-activities.html:37
+msgid ""
+"There are no free activities available for this lesson. <br/> Would you like "
+"to"
+msgstr "このレッスンは本を使わなくてもいい活動がありません。<br/>"
+
+#: templates/lessons/lesson-flashcards.html:34
+msgid ""
+"There are no flashcards available for this lesson. <br/> Would you like to"
+msgstr "このレッスンはフラッシュカードがありません。<br/>"
+
+#: templates/lessons/lesson-flashcards.html:34
+msgid "add a new flashcard?"
+msgstr "フラッシュカードを追加しましょうか"
+
+#: templates/lessons/lesson-plan-header.html:9
+msgid "Lesson Plans for "
+msgstr "<span class='hidden'></span>"
+
+#: templates/lessons/lesson-plan-header.html:9
+msgid "<span class='japanese-lesson-plans'></span>"
+msgstr "の授業計画"
+
+#: templates/lessons/lesson-plan-information.html:10
+#: templates/schedules/view_schedule.html:28
+#: templates/schedules/view_schedule.html:215
+#: templates/schedules/view_section_period.html:59
+#: templates/schedules/view_section_period.html:71
+msgid "<span class='japanese-hour'></span>"
+msgstr "時間目"
+
+#: templates/lessons/lesson-plan-information.html:12
+msgid "Lesson Plan Information"
+msgstr "授業計画情報"
+
+#: templates/lessons/lesson-plan-information.html:25
+#: templates/lessons/view_activity.html:41
+msgid "Portion"
+msgstr "部分"
+
+#: templates/lessons/lesson-target-languages.html:11
+msgid "Target Languages"
+msgstr "単文"
+
+#: templates/lessons/lesson-target-languages.html:33
+msgid ""
+"There are no target languages available for this lesson. <br/> Would you "
+"like to"
+msgstr "このレッスンは単文がありません。<br/>"
+
+#: templates/lessons/lesson-target-languages.html:33
+msgid "add a new target language?"
+msgstr "単文を追加しましょうか？"
+
+#: templates/lessons/lesson_plans.html:20
+msgid "Lesson Selection"
+msgstr "レッスン選択"
+
+#: templates/lessons/view_activity.html:7
+#: templates/lessons/view_activity.html:21
+msgid "View Activity"
+msgstr "活動の情報"
+
+#: templates/lessons/view_lesson.html:7
+#: templates/schedules/view_schedule.html:21
+msgid "Lesson "
+msgstr "レッスン "
+
+#: templates/schedules/schedule_manager.html:23
+#: templates/schedules/school_periods.html:38
+#: templates/schedules/sections_courses.html:24
+msgid "School Year"
+msgstr "学年"
+
+#: templates/schedules/schedule_manager.html:50
+msgid "Month"
+msgstr "月"
+
+#: templates/schedules/schedule_manager.html:62
+#: templates/schedules/view_schedule.html:7
+msgid "View Schedule"
+msgstr "時間割を管理"
+
+#: templates/schedules/school-periods-period-input-row.html:17
+msgid "Add"
+msgstr "追加"
+
+#: templates/schedules/school-periods-period-row.html:29
+#: templates/schedules/school_periods.html:18
+msgid "Delete Time Period"
+msgstr "時限を削除"
+
+#: templates/schedules/school-periods-period-view.html:16
+msgid "Edit Profile"
+msgstr "日課表を編集"
+
+#: templates/schedules/school-periods-period-view.html:22
+msgid "Period Number"
+msgstr "番号"
+
+#: templates/schedules/school-periods-period-view.html:23
+msgid "Start Time"
+msgstr "開始時刻"
+
+#: templates/schedules/school-periods-period-view.html:24
+msgid "End Time"
+msgstr "終了時刻"
+
+#: templates/schedules/school-periods-period-view.html:37
+#: templates/schedules/view_schedule.html:167
+msgid "Edit Period Profile"
+msgstr "日課表を編集"
+
+#: templates/schedules/school-periods-profile-header.html:9
+msgid "Period Profiles for "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/school-periods-profile-header.html:9
+msgid "<span class='japanese-period-profiles-for'></span>"
+msgstr "の日課表"
+
+#: templates/schedules/school-periods-profile-header.html:19
+msgid "Add Profile"
+msgstr "日課表を追加"
+
+#: templates/schedules/school-periods-profile-header.html:27
+msgid "Add Period Profile"
+msgstr "日課表を追加"
+
+#: templates/schedules/school_periods.html:21
+msgid ""
+"Please input both the start time and the end time in the proper format. (e."
+"g.: 09:40, 14:35)"
+msgstr "正しい形式で入力してください。（例：09:40, 14:35）"
+
+#: templates/schedules/school_periods.html:24
+msgid "A new period has been added."
+msgstr "追加しました。"
+
+#: templates/schedules/school_periods.html:27
+msgid ""
+"The start time must be earlier than the end time. Please use the 24-hour "
+"format."
+msgstr "終了時刻は遅くなる必要があります。"
+
+#: templates/schedules/school_periods.html:74
+msgid "View Profiles"
+msgstr "日課表を管理"
+
+#: templates/schedules/sections_courses.html:59
+msgid "View Year Level Information"
+msgstr "等級情報を見る"
+
+#: templates/schedules/sections_courses.html:68
+msgid "Year Level Information for "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/sections_courses.html:75
+#: templates/schedules/view_schedule.html:66
+msgid "Year Level"
+msgstr "等級"
+
+#: templates/schedules/sections_courses.html:76
+msgid "Section Count"
+msgstr "組数"
+
+#: templates/schedules/sections_courses.html:77
+msgid "Total Students"
+msgstr "学徒数"
+
+#: templates/schedules/sections_courses.html:78
+msgid "Assigned Books"
+msgstr "使っている本"
+
+#: templates/schedules/sections_courses.html:85
+#: templates/schedules/view_schedule.html:74
+#: templates/schedules/view_section.html:23
+#: templates/schedules/view_section.html:128
+#: templates/schedules/view_section.html:175
+#: templates/schedules/view_section.html:196
+#: templates/schedules/view_section_activities.html:15
+msgid "Special Needs"
+msgstr "特別支援教育"
+
+#: templates/schedules/sections_courses.html:87
+#: templates/schedules/view_section.html:25
+#: templates/schedules/view_section.html:130
+#: templates/schedules/view_section.html:177
+#: templates/schedules/view_section.html:196
+#: templates/schedules/view_section_activities.html:17
+msgid "Grade "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/sections_courses.html:87
+#: templates/schedules/view_section.html:25
+#: templates/schedules/view_section.html:130
+#: templates/schedules/view_section.html:177
+#: templates/schedules/view_section.html:196
+#: templates/schedules/view_section_activities.html:18
+msgid "<span class='japanese-year-level'></span>"
+msgstr "年生"
+
+#: templates/schedules/sections_courses.html:106
+msgid "Manage"
+msgstr "管理"
+
+#: templates/schedules/sections_courses.html:114
+msgid "There are no sections and courses available for this school."
+msgstr "組がありません。"
+
+#: templates/schedules/view_schedule.html:20
+msgid "Same as "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_schedule.html:22
+msgid ", Hour "
+msgstr ", "
+
+#: templates/schedules/view_schedule.html:23
+msgid ", on "
+msgstr "時間目, "
+
+#: templates/schedules/view_schedule.html:25
+msgid "<span id='japanese-day'></span>"
+msgstr "日"
+
+#: templates/schedules/view_schedule.html:31
+msgid "<span id='japanese-same-as'></span>"
+msgstr "と同じ授業計画"
+
+#: templates/schedules/view_schedule.html:40
+msgid "Class Schedules"
+msgstr "時間割"
+
+#: templates/schedules/view_schedule.html:84
+#: templates/schedules/view_schedule.html:175
+msgid "Section"
+msgstr "組"
+
+#: templates/schedules/view_schedule.html:86
+msgid "There are no sections available for the selected year level."
+msgstr "組がありません。"
+
+#: templates/schedules/view_schedule.html:91
+msgid "Pre-made Lesson Plan"
+msgstr "既製授業計画"
+
+#: templates/schedules/view_schedule.html:93
+msgid ""
+"There are no pre-made lesson plans available for the selected year level."
+msgstr "授業計画がありません。"
+
+#: templates/schedules/view_schedule.html:99
+msgid "Notes (Optional)"
+msgstr "メモ（必要はない）"
+
+#: templates/schedules/view_schedule.html:105
+msgid "Bring additional flashcards"
+msgstr "例：ミーティング"
+
+#: templates/schedules/view_schedule.html:111
+msgid "Last Lesson Held"
+msgstr "最後の授業の情報"
+
+#: templates/schedules/view_schedule.html:133
+msgid "Edit Period Profile for"
+msgstr "日課表を編集："
+
+#: templates/schedules/view_schedule.html:139
+msgid ""
+"Once the period profile has changed, the times will change as well, so all "
+"the old classes that were entered for the day will be deleted."
+msgstr ""
+"編集すれば、時間も変わりましたので、授業の予定が入れば削除してしまいます。"
+
+#: templates/schedules/view_schedule.html:174
+msgid "Time Period"
+msgstr "時限"
+
+#: templates/schedules/view_schedule.html:239
+#: templates/schedules/view_section.html:89
+#: templates/schedules/view_section.html:151
+msgid "Delete"
+msgstr "削除"
+
+#: templates/schedules/view_schedule.html:241
+msgid "Edit Class"
+msgstr "授業を編集"
+
+#: templates/schedules/view_schedule.html:251
+#: templates/schedules/view_section.html:157
+#: templates/schoolyears/school-year-information.html:10
+msgid "Edit"
+msgstr "編集"
+
+#: templates/schedules/view_schedule.html:257
+#: templates/schedules/view_schedule.html:262
+msgid "No class scheduled."
+msgstr "授業の予定が入っていません"
+
+#: templates/schedules/view_schedule.html:267
+#: templates/schedules/view_schedule.html:273
+msgid "Add Class"
+msgstr "授業を追加"
+
+#: templates/schedules/view_schedule.html:285
+msgid ""
+"There are no classes scheduled for the school on this month. Would you like "
+"to"
+msgstr "今月はこの学校で予定入っていません。"
+
+#: templates/schedules/view_schedule.html:285
+msgid "schedule a new class day"
+msgstr "予定を追加しましょうか？"
+
+#: templates/schedules/view_section.html:7
+msgid "View Section"
+msgstr "組を管理"
+
+#: templates/schedules/view_section.html:17
+msgid "Back to Year Level Manager page for"
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section.html:17
+msgid "<span class='japanese-back-to-year-level-manager'></span>"
+msgstr "の等級のページに戻る"
+
+#: templates/schedules/view_section.html:31
+msgid "Section Information"
+msgstr "組の情報"
+
+#: templates/schedules/view_section.html:39
+msgid "Add Section"
+msgstr "組を追加"
+
+#: templates/schedules/view_section.html:46
+msgid "Section Name"
+msgstr "組の名前"
+
+#: templates/schedules/view_section.html:47
+msgid "Teacher's Name"
+msgstr "担任名"
+
+#: templates/schedules/view_section.html:97
+msgid "There are no available sections for this school and year level."
+msgstr "組がありません。"
+
+#: templates/schedules/view_section.html:101
+msgid "Book Information"
+msgstr "使っている本の情報"
+
+#: templates/schedules/view_section.html:109
+msgid "Assign Book"
+msgstr "本を追加"
+
+#: templates/schedules/view_section.html:126
+msgid "Re-assign a new book to "
+msgstr "本を編集、"
+
+#: templates/schedules/view_section.html:166
+msgid ""
+"There are no assigned books for this year level.<br/> Would you like to "
+msgstr "使っている本がありません。<br/>"
+
+#: templates/schedules/view_section.html:166
+msgid " assign a book?"
+msgstr "本を追加しましょうか？"
+
+#: templates/schedules/view_section.html:173
+msgid "Assign a new book to "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section.html:173
+msgid "<span class='japanese-assign-a-new-book'></span>"
+msgstr "に本を追加"
+
+#: templates/schedules/view_section.html:195
+msgid "Add a new section, "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section.html:195
+msgid "<span class='japanese-add-a-new-section'></span>"
+msgstr "に組を追加"
+
+#: templates/schedules/view_section.html:196
+msgid "Section "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section.html:196
+#: templates/schedules/view_section_period.html:63
+msgid "<span class='japanese-section'></span>"
+msgstr "組"
+
+#: templates/schedules/view_section.html:218
+#: templates/schedules/view_section_activities.html:24
+msgid "Activities Finished Per Section"
+msgstr "完成しました活動"
+
+#: templates/schedules/view_section.html:233
+msgid "View All"
+msgstr "全部を見る"
+
+#: templates/schedules/view_section.html:321
+#: templates/schedules/view_section_activities.html:122
+msgid "Classes have not been held for this section yet."
+msgstr "授業の予定がまだ入っていません。"
+
+#: templates/schedules/view_section.html:330
+msgid ""
+"It looks like classes have not been held yet for any of the sections in this "
+"year level. A class can be scheduled using the Schedule Manager function."
+msgstr "授業の予定がまだ入っていません。"
+
+#: templates/schedules/view_section_activities.html:7
+msgid "View Section Activities"
+msgstr "完成しました活動"
+
+#: templates/schedules/view_section_activities.html:13
+msgid "Back to "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section_activities.html:20
+msgid "<span class='japanese-back-to-view-section'></span>"
+msgstr "のページに戻る"
+
+#: templates/schedules/view_section_period.html:7
+msgid "Class Period"
+msgstr "組と授業計画の情報"
+
+#: templates/schedules/view_section_period.html:19
+msgid "Back to Schedule Management page"
+msgstr "時間割を管理のページに戻る"
+
+#: templates/schedules/view_section_period.html:25
+#: templates/schedules/view_section_period.html:52
+msgid "Edit Lesson/Hour"
+msgstr "レッスンの情報を編集"
+
+#: templates/schedules/view_section_period.html:46
+msgid "Class Period Information"
+msgstr "組と授業計画の情報"
+
+#: templates/schedules/view_section_period.html:58
+msgid "Time Information"
+msgstr "時間の情報"
+
+#: templates/schedules/view_section_period.html:59
+msgid "Period "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schedules/view_section_period.html:62
+msgid "Class Information"
+msgstr "組の情報"
+
+#: templates/schedules/view_section_period.html:63
+msgid "Class "
+msgstr "<span class='hidden'></span>"
+
+#: templates/schoolyears/edit-overall-schedule.html:5
+msgid "Edit Overall Schedule"
+msgstr "スケジュールを編集"
+
+#: templates/schoolyears/edit-overall-schedule.html:20
+msgid "Active School:"
+msgstr "学校"
+
+#: templates/schoolyears/edit-schedule-header.html:5
+msgid "Back to school year page"
+msgstr "学年のページに戻る"
+
+#: templates/schoolyears/edit-schedule-header.html:15
+#: templates/schoolyears/edit-schedule-main-calendar.html:23
+msgid "Saving..."
+msgstr "保存しています..."
+
+#: templates/schoolyears/edit-schedule-instructions.html:5
+msgid "Instructions"
+msgstr "説明書"
+
+#: templates/schoolyears/edit-schedule-instructions.html:19
+msgid "Click on the Active School dropdown to select your desired school."
+msgstr "ドロップダウンで学校を選択して下さい。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:20
+msgid "Click on any day within the calendar to toggle its schedule."
+msgstr "日付をクリックしてください。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:21
+msgid "To set a range for a selected school, use SHIFT + Click."
+msgstr "[Shift]キーを押しながらクリックすることができます。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:22
+msgid "Click and drag to select a number of days."
+msgstr "クリックしてドラッグすることができます。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:23
+msgid ""
+"Click the Undo button or CTRL+Z to undo the last action. Note that it is not "
+"possible to redo the action once it is undone."
+msgstr "最後のことを元に戻すことができます。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:24
+msgid "Click the Save button or CTRL+S to save the calendar to the database."
+msgstr "ボタンか[CTRL+S]で保存することができます。"
+
+#: templates/schoolyears/edit-schedule-instructions.html:25
+msgid ""
+"Click the Download .ICS button to download the iCAL file. The following "
+"shows how to download and import to Google Calendar."
+msgstr ".ICSファイルをダウンロードすることができます。"
+
+#: templates/schoolyears/edit-schedule-main-calendar.html:14
+#: templates/schoolyears/school-calendar.html:10
+msgid "Download .ICS"
+msgstr ".ICSをダウンロード"
+
+#: templates/schoolyears/edit-schedule-main-calendar.html:16
+msgid "Undo"
+msgstr "元に戻す"
+
+#: templates/schoolyears/edit-schedule.html:7
+#: templates/schoolyears/school-calendar.html:14
+msgid "Edit Schedule"
+msgstr "スケジュールを編集"
+
+#: templates/schoolyears/index.html:6
+msgid "School Year:"
+msgstr "学年："
+
+#: templates/schoolyears/index.html:46
+msgid ""
+"There are no schools available. Would you like to <a href=\"#\" data-toggle="
+"\"modal\" data-target=\"#add-school\" id=\"add-school-from-content\">add a "
+"new school?</a>"
+msgstr "学校がありません。"
+
+#: templates/schoolyears/index.html:52
+msgid ""
+"There are no school years available. <br/> Would you like to <a class="
+"\"cursor-pointer\" data-toggle=\"modal\" data-target=\"#add-schoolyear\" id="
+"\"add-school-year-from-content\">add a new school year?</a>"
+msgstr "学年がありません。"
+
+#: templates/schoolyears/modals.html:10
+msgid "Edit School Year: "
+msgstr "学年を編集"
+
+#: templates/schoolyears/modals.html:30
+msgid "Add New School"
+msgstr "学校を追加"
+
+#: templates/schoolyears/modals.html:49
+msgid "Edit School Color"
+msgstr "学校の色を編集"
+
+#: templates/schoolyears/modals.html:83
+msgid "Add New School Year"
+msgstr "学年を追加"
+
+#: templates/schoolyears/school-basic-information.html:24
+msgid "General Information"
+msgstr "一般情報"
+
+#: templates/schoolyears/school-basic-information.html:37
+msgid "Address"
+msgstr "番地"
+
+#: templates/schoolyears/school-basic-information.html:54
+msgid "Contact number"
+msgstr "連絡先番号"
+
+#: templates/schoolyears/school-basic-information.html:70
+msgid "Website"
+msgstr "サイト"
+
+#: templates/schoolyears/school-basic-information.html:86
+msgid "Principal"
+msgstr "校長先生"
+
+#: templates/schoolyears/school-basic-information.html:102
+msgid "Vice Principal"
+msgstr "副校長先生"
+
+#: templates/schoolyears/school-basic-information.html:118
+msgid "English Head Teacher"
+msgstr "英語担当"
+
+#: templates/schoolyears/school-calendar.html:7
+msgid "Overall Schedule"
+msgstr "学年スケジュール概要"
+
+#: templates/schoolyears/school-header.html:5
+msgid "Schools"
+msgstr "学校"
+
+#: templates/schoolyears/school-header.html:7
+msgid "Add School"
+msgstr "学校を追加"
+
+#: templates/schoolyears/school-route-information.html:9
+msgid "Route Information"
+msgstr "ルート情報"
+
+#: templates/schoolyears/school-route-information.html:23
+msgid "Edit Station Name"
+msgstr "駅名を編集"
+
+#: templates/schoolyears/school-route-information.html:52
+msgid "Edit Route From "
+msgstr "ルートを編集: "
+
+#: templates/schoolyears/school-route-information.html:94
+msgid "Add Route From "
+msgstr "ルートを追加: "
+
+#: templates/schoolyears/school-route-information.html:125
+msgid "Add Travel Route"
+msgstr "ルートを追加"
+
+#: templates/schoolyears/school-route-information.html:134
+#: templates/schoolyears/school-route-information.html:139
+msgid "Add Home Station"
+msgstr "出発地を追加"
+
+#: templates/schoolyears/school-year-information.html:17
+msgid "This school year is the active school year."
+msgstr "今使っている学年"
+
+#: templates/schoolyears/school-year-information.html:19
+msgid "This school year is inactive."
+msgstr "使っていない学年"

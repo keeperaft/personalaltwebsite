@@ -1,0 +1,14 @@
+.period-name {
+	font-size: 1.0em;
+	font-weight: 400;
+}
+
+.last-class-present {
+	font-weight: 600;
+	color: green;
+}
+
+.last-class-absent {
+	color: #999;
+	font-style: italic;
+}

@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+
+<div class="hidden remove-me">
+	<modal-content id="generate-target-language">
+		<modal-head>
+			{% trans "Generate Target Language" %}
+		</modal-head>
+
+		<form class="modal-form" action="/lessons/generate_target_language" method="POST" enctype="multipart/form-data">
+		<modal-body>
+			{% csrf_token %}
+			{% bootstrap_field add_target_language_form.target_language addon_after=glyphicon_pencil placeholder="Where do you want to go?" %}
+			{% bootstrap_field add_target_language_form.color %}
+			{% bootstrap_field add_target_language_form.notes placeholder="Emphasize the accents on 'where' and 'you'" %}
+		</modal-body>
+
+		<modal-footer>
+			<div class="remove-save-button"></div>
+			<button class="btn btn-primary" type="submit">{% trans "Generate" %}</button>
+		</modal-footer>
+		</form>
+	</modal-content>
+</div>

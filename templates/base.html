@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74234488-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-74234488-2');
+    </script>
+
+    <!-- Django modules -->
+    {% load static from staticfiles %}
+    {% load i18n %}
+    {% load bootstrap3 %}
+
+    <title>{% block title %}{% endblock title %} - {% trans "Personal ALT Website" %}</title>
+    <meta name="viewport" content="initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static "images/favicon.ico" %}"/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap.css" %}" media="screen"/> --> <!-- For local -->
+    <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap-datepicker.min.css" %}" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap-switch.min.css" %}" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="{% static "css/wickedpicker.css" %}" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="{% static "css/base.css" %}" media="screen"/>
+
+    {% block additional_css %}
+    {% endblock additional_css %}
+</head>
+<body>
+
+<div class="row fixed-alerts-row container">
+</div>
+
+<div class="hidden" id="strings">
+    <span class="hidden" id="active-language">{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}</span>
+
+    <span class="hidden" id="csrf-token">{{ csrf_token }}</span>
+    <span class="hidden" id="string-show">{% trans "Show" %}</span>
+    <span class="hidden" id="string-hide">{% trans "Hide" %}</span>
+
+    <span class="hidden" id="string-loading">{% trans "Loading" %}</span>
+    <span class="hidden" id="string-close">{% trans "Close" %}</span>
+    <span class="hidden" id="string-save">{% trans "Save" %}</span>
+    
+    <span class="hidden" id="string-january">{% trans "January" %}</span>
+    <span class="hidden" id="string-february">{% trans "February" %}</span>
+    <span class="hidden" id="string-march">{% trans "March" %}</span>
+    <span class="hidden" id="string-april">{% trans "April" %}</span>
+    <span class="hidden" id="string-may">{% trans "May" %}</span>
+    <span class="hidden" id="string-june">{% trans "June" %}</span>
+    <span class="hidden" id="string-july">{% trans "July" %}</span>
+    <span class="hidden" id="string-august">{% trans "August" %}</span>
+    <span class="hidden" id="string-september">{% trans "September" %}</span>
+    <span class="hidden" id="string-october">{% trans "October" %}</span>
+    <span class="hidden" id="string-november">{% trans "November" %}</span>
+    <span class="hidden" id="string-december">{% trans "December" %}</span>
+
+    <div class="fixed-alerts">
+        <div class="alert alert-success alert-dismissable col-md-12">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <span class="fixed-alert-message">Test</span>
+        </div>
+        <div class="alert alert-danger alert-dismissable col-md-12">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <span class="fixed-alert-message">Test</span>
+        </div>
+    </div>
+
+    <div class="multi-select-calendar">
+        <div class="schoolyear-month">
+        </div>
+        <ul class="weekdays">
+            <li>{% trans "Su" %}</li><li>{% trans "Mo" %}</li><li>{% trans "Tu" %}</li><li>{% trans "We" %}</li><li>{% trans "Th" %}</li><li>{% trans "Fr" %}</li><li>{% trans "Sa" %}</li>
+        </ul>
+    </div>
+
+    <ul class="days">
+        <li>1</li> <li>2</li> <li>3</li> <li>4</li>
+        <li>5</li> <li>6</li> <li>7</li> <li>8</li>
+        <li>9</li> <li>10</li> <li>11</li> <li>12</li>
+        <li>13</li> <li>14</li> <li>15</li> <li>16</li>
+        <li>17</li> <li>18</li> <li>19</li> <li>20</li>
+        <li>21</li> <li>22</li> <li>23</li> <li>24</li>
+        <li>25</li> <li>26</li> <li>27</li> <li>28</li>
+        <li id="calendar-29">29</li> 
+        <li id="calendar-30">30</li> 
+        <li id="calendar-31">31</li>
+    </ul>
+    <div class="week">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Header logo, label and login status -->
+<div class="container-fluid" id="paw-header">
+    <div class="container">
+        <div class="row">
+            <a href="/index" class="header-link">
+
+            <!-- Header logo and label -->
+            <div class="col-xs-6" id="paw-header-text">
+                <div class="row">
+                    <div id="paw-icon">
+                        <img alt="Header Icon"
+                             height="50"
+                             width="50"
+                             src="{% static "images/paw-icon.svg" %}"
+                        />
+                    </div>
+                    <div class="hidden-xs" id="paw-icon-label">
+                        <div id="paw-icon-label-large">PAW<span class="beta-text">BETA DEMO</span></div>
+                        <div id="paw-icon-label-small">{% trans "Personal ALT Website" %}</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <!-- User login status -->
+            <div class="col-xs-6 text-right"
+                id="paw-header-login-status">
+                    {% trans "Welcome" %}!<br/>
+                    <div class="header-link" id="language-selector">
+                        <a href="#" class="language-changer" data-language="ja" data-url="{{ BASE_URL }}/language/">日本語</a> |
+                         <a href="#" class="language-changer" data-language="en" data-url="{{ BASE_URL }}/language/">English</a>
+                    </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of header logo, label and login status -->
+
+<!-- Sub-header tabs -->
+<div class="container-fluid" id="paw-sub-header-tabs">
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-pills nav-justified sub-header-items">
+                {% for key, item in menu.items %}
+                    {% if item.is_selected %}
+                    <li class="active">
+                        <a href="{{ BASE_URL }}/{{ item.url }}">{% trans item.name %}</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ BASE_URL }}/{{ item.url }}">{% trans item.name %}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Main body -->
+<div class="container">
+    <div id="editable-overlay"></div>
+
+    <!-- Boostrap Message -->
+    <div class="row" id="paw-messages">
+        {% bootstrap_messages %}
+        {% if not request.session.is_demo_info_removed %}
+        <div class="alert alert-info alert-dismissable col-md-12">
+            <button type="button" class="close demo-alert-close" data-dismiss="alert" aria-hidden="true">×</button>
+            {% trans "This is just a demo at the moment. Note that any changes made will be reset." %}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- PAW Logs -->
+    <div class="row" id="paw-logs">
+    </div>
+
+    <!-- Sidebar and main content -->
+    <div class="row" id="paw-content">    
+        <!-- Sidebar -->
+        {% if sidebar %}
+        <div class="col-sm-3" id="paw-sidebar">
+            <div class="list-group list-group-root well">
+                {% for key, item in sidebar.items %}
+                    {% if item.is_selected %}
+                    <a href="{{ BASE_URL }}/{{ item.url }}"
+                       class="active-sidebar-item list-group-item">
+                        {% trans item.name %}
+                    </a>
+                    {% else %}
+                    <a href="{{ BASE_URL }}/{{ item.url }}"
+                       {% if item.modal_id is not None %}
+                           data-toggle="modal"
+                           data-target="#{{ item.modal_id }}"
+                       {% endif %}
+                       class="list-group-item">
+                        {% trans item.name %}
+                    </a>
+                    {% endif %}
+
+                    {% if item.subitems %}
+                    <div class="list-group">
+                    {% for key, subitem in item.subitems.items %}
+                        {% if subitem.is_selected %}
+                        <a href="{{ BASE_URL }}/{{ subitem.url }}"
+                           class="active-sidebar-item list-group-item">
+                            {% trans subitem.name %}
+                        </a>
+                        {% else %}
+                        <a href="{{ BASE_URL }}/{{ subitem.url }}"
+                           {% if subitem.modal_id is not None %}
+                               data-toggle="modal"
+                               data-target="#{{ subitem.modal_id }}"
+                           {% endif %}
+                           class="list-group-item">
+                            {% trans subitem.name %}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <!-- End of sidebar -->
+        
+        <!-- Main content -->
+        <div class="col-sm-9" id="paw-main-content">
+        
+        {% else %}
+        <!-- Main content, without sidebar -->
+        <div class="col-sm-12" id="paw-main-content">        
+        {% endif %}
+		     <!-- Note: size of the block content depends on whether or not there is a sidebar. -->
+        {% block content %}
+        {% endblock content %}
+        </div>
+        <!-- End of main content -->
+
+        <!-- Scroll to top button -->
+        <div id="scroll-to-top">
+            ▲
+        </div>    </div>
+    <!-- End of sidebar and main content -->
+</div>
+<!-- End of main body -->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6" id="footer-copyright">
+                &copy; <span id='copyright-year'></span> Keeperaft
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End of footer -->
+
+<!-- JavaScript Files -->
+<script src="{% static "js/cookie.min.js" %}"></script>
+<script src="{% static "js/jquery.js" %}"></script>
+<!-- <script src="{% static "js/bootstrap.js" %}"></script> --> <!-- For local -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+<script src="{% static "js/clipboard.min.js" %}"></script>
+<script src="{% static "js/bootstrap-switch.min.js" %}"></script>
+{% block additional_js %}
+{% endblock additional_js %}
+<script src="{% static "js/base.js" %}"></script>
+    
+</body>
+</html>

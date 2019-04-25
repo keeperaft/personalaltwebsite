@@ -1,0 +1,23 @@
+[
+  {
+    "model": "schoolyears.schooltype",
+    "pk": 1,
+    "fields": {
+      "school_type_name": "Elementary School"
+    }
+  },
+  {
+    "model": "schoolyears.schooltype",
+    "pk": 2,
+    "fields": {
+      "school_type_name": "Junior High School"
+    }
+  },
+  {
+    "model": "schoolyears.schooltype",
+    "pk": 3,
+    "fields": {
+      "school_type_name": "High School"
+    }
+  }
+]

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Lesson Plans" %}
+{% endblock title %}
+
+{% block additional_js %}
+<script src="{% static "js/lessons/lesson-plans.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+		
+	{% if all_courses %}
+	{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+	<div class="row">
+		<div class="col-xs-12 page-header-left" id="lesson-names">
+			{% trans "Lesson Selection" %}
+		</div>
+	</div>
+	{% csrf_token %}
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-sm-3">{% trans "Book" %}</th>
+			<td> 
+				<select class="form-control" id="lesson-plan-course" name="course_id">
+					{% for item in all_courses %}
+						<option value="{{ item.course.id }}"
+							data-lessons="{{ item.lessons }}"
+							{% if selected_course.id == item.course.id %}
+							selected="selected"
+							{% endif %}>
+							{{ item.course.course_name }}
+						</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-sm-3">{% trans "Lesson" %}</th>
+			<td id="lesson-plan-lesson-dropdown-cell" data-selected-id="{{ selected_lesson.id }}"> 
+				<select disabled="true" class="form-control" name="lesson_id">
+					<option>{% trans "Loading" %}</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-5">
+			<a href="#" id="check-lesson-plan-button">
+				<button class="btn btn-primary">
+					{{ glyphicon_info_sign }} {% trans "Check Lesson Plans" %}
+				</button>
+			</a>
+		</div>
+	</div>
+	{% if selected_lesson and selected_course %}
+		<hr/>
+		{% include "lessons/lesson-plan-header.html" %}
+		{% if all_hours %}
+			{% for hour in all_hours %}
+				{% include "lessons/lesson-plan-information.html" %}
+			{% endfor %}
+		{% else %}
+		<div class="row">
+			<div class="col-sm-12 center-align">
+				{% trans 'There are no lesson plans available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-lesson-plan" id="add-lesson-plan-from-content">add a new lesson plan?</a>' %}
+			</div>
+		</div>
+		{% endif %}
+	{% endif %}
+	{% else %}
+		<div class="row">
+			<div class="col-sm-12 center-align">
+				{% trans 'There are no books available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-course" id="add-course-from-content">add a new book?</a>' %}
+			</div>
+		</div>
+	{% endif %}
+{% endblock content %}

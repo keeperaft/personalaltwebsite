@@ -1,0 +1,140 @@
+{% load i18n %}
+<div class="school-name">
+	<span class="editable-label" 
+		data-url="/schoolyears/update_school/name/" 
+		data-id="{{ school.id }}"
+		data-value="{{ school.name }}" 
+		data-type="textfield">
+		{{ school.name }}
+	</span>
+</div>
+<div class="school-name">
+	<span class="editable-label" 
+		data-url="/schoolyears/update_school/name_kanji/" 
+		data-id="{{ school.id }}"
+		data-value="{{ school.name_kanji }}" 
+		data-type="textfield">
+		{{ school.name_kanji }}
+	</span>
+</div>
+<div class="row">
+	<div class="sub-school-information">
+		<div class="row">
+			<div class="col-sm-12">
+				{% trans "General Information" %}
+				<button class="btn btn-tertiary toggle-visibility"
+					id="general-information-toggle-visibility-{{ school.id }}"
+					data-target="#general-information-{{ school.id }}">
+					{% trans "Show" %}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="toggle-visibility-target" id="general-information-{{ school.id }}">
+	<table class="table table-hover padding-5">
+		<tr>
+			<td class="col-sm-4">{% trans "Address" %}</td>
+			<td>
+			<span class="editable-label" 
+				data-url="/schoolyears/update_school/address/" 
+				data-id="{{ school.id }}"
+				data-value="{{ school.address }}" 
+				data-type="textfield">
+				{% if school.address == '' %}
+					N/A
+				{% else %}
+					{{ school.address }}
+				{% endif %}
+			</span>
+			
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "Contact number" %}</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schoolyears/update_school/contact_number/" 
+					data-id="{{ school.id }}"
+					data-value="{{ school.contact_number }}" 
+					data-type="textfield">
+					{% if school.contact_number == '' %}
+						N/A
+					{% else %}
+						{{ school.contact_number }}
+					{% endif %}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "Website" %}</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schoolyears/update_school/website/" 
+					data-id="{{ school.id }}"
+					data-value="{{ school.website }}" 
+					data-type="textfield">
+					{% if school.website == '' %}
+						N/A
+					{% else %}
+						{{ school.website }}
+					{% endif %}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "Principal" %}</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schoolyears/update_school/principal/" 
+					data-id="{{ school.id }}"
+					data-value="{{ school.principal }}" 
+					data-type="textfield">
+					{% if school.principal == '' %}
+						N/A
+					{% else %}
+						{{ school.principal }}
+					{% endif %}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "Vice Principal" %}</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schoolyears/update_school/vice_principal/" 
+					data-id="{{ school.id }}"
+					data-value="{{ school.vice_principal }}" 
+					data-type="textfield">
+					{% if school.vice_principal == '' %}
+						N/A
+					{% else %}
+						{{ school.vice_principal }}
+					{% endif %}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "English Head Teacher" %}</td>
+			<td>
+				<span class="editable-label" 
+					data-url="/schoolyears/update_school/english_head_teacher/" 
+					data-id="{{ school.id }}"
+					data-value="{{ school.english_head_teacher }}" 
+					data-type="textfield">
+					{% if school.english_head_teacher == '' %}
+						N/A
+					{% else %}
+						{{ school.english_head_teacher }}
+					{% endif %}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans "School Type" %}</td>
+			<td>
+				{{ school.get_readable_school_type }}
+			</td>
+		</tr>
+	</table>
+</div>

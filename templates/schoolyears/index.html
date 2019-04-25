@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block title %}
+{% trans "School Year:" %} {{ selected_school_year.name }}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/schoolyears/index.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block additional_js %}
+<script src="{% static "js/filesaver.min.js" %}"></script>
+<script src="{% static "js/schoolyears/index.js" %}"></script>
+<script src="{% static "js/schoolyears/calendar-view.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	<!-- Main body -->
+	{% include "schoolyears/modals.html"%}
+	{% if selected_school_year is not None %}
+		{% include "schoolyears/school-year-information.html" %}
+		<hr/>
+		{% include "schoolyears/school-header.html" %}
+		{% if all_schools %}
+			{% for school in all_schools %}
+			<div class="row">
+				<div class="col-sm-1 hidden-xs">
+					<div class="school-color" 
+						data-color="{{ school.school_colors }}" 
+						data-id="{{ school.id }}"
+						data-toggle="modal" 
+						data-target="#edit-color">
+					</div>
+				</div>
+				<div class="col-sm-11">
+					{% include "schoolyears/school-basic-information.html" %}
+					{% include "schoolyears/school-route-information.html" %}
+				</div>
+			</div>
+			<hr/>
+			{% endfor %}  
+			{% include "schoolyears/school-calendar.html" %}    
+		{% else %}
+			{% trans 'There are no schools available. Would you like to <a href="#" data-toggle="modal" data-target="#add-school" id="add-school-from-content">add a new school?</a>' %}
+			<hr/>
+		{% endif %}    
+	{% else %}
+	<div class="row">
+		<div class="col-sm-12 center-align">
+			{% trans 'There are no school years available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-schoolyear" id="add-school-year-from-content">add a new school year?</a>' %}
+		</div>
+	</div>
+	{% endif %}
+{% endblock content %}
+
+

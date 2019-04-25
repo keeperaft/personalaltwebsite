@@ -1,0 +1,98 @@
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+{% bootstrap_icon "calendar" as glyphicon_calendar %}
+<div class="hidden remove-me">
+	{% if edit_form %}
+	<modal-content id="edit-schoolyear">
+		<modal-head>
+			{% trans "Edit School Year: " %}{{ selected_school_year.name }}
+		</modal-head>
+
+		<!-- This thing is failing me for some reason url 'school_years:school_year_save' selected_school_year.id -->
+		<form class="modal-form" action="/schoolyears/school_year_save/{{ selected_school_year.id }}" method="POST">
+		<modal-body>
+			{% csrf_token %}
+			{% bootstrap_field edit_form.start_date addon_after=glyphicon_calendar placeholder="2017-04-15" %}
+			{% bootstrap_field edit_form.end_date addon_after=glyphicon_calendar placeholder="2017-03-31" %}     
+		</modal-body>
+
+		<modal-footer>
+		</modal-footer>
+		</form>
+	</modal-content>
+	{% endif %}
+
+	{% if add_school_form %}
+	<modal-content id="add-school">
+		<modal-head>
+			{% trans "Add New School" %}
+		</modal-head>
+
+		<form class="modal-form" action="/schoolyears/add_school/{{ selected_school_year.id }}" method="POST">
+		<modal-body>
+			{% csrf_token %}
+			{% bootstrap_field add_school_form.name addon_after=glyphicon_pencil placeholder="Orca Elementary School" %}
+			{% bootstrap_field add_school_form.name_kanji addon_after=glyphicon_pencil placeholder="オルカ小学校" %}			
+			{% bootstrap_field add_school_form.school_type %}
+		</modal-body>
+
+		<modal-footer>
+		</modal-footer>
+		</form>
+	</modal-content>
+	{% endif %}
+
+	<modal-content id="edit-color">
+		<modal-head>
+			{% trans "Edit School Color" %}
+		</modal-head>
+
+		<form class="modal-form" action="{% url 'school_years:edit_color' %}"  method="POST">
+		<modal-body>
+			<div class="vertical-center">
+				{% csrf_token %}
+				<!-- Display all the colors here -->
+				<input type="hidden" name="id" id="color-id" value=""/>
+				<input type="hidden" name="value" id="color-value" value=""/>
+				{% if school_colors is not None %}
+					{% for key, color in school_colors.items %}
+						<div class="btn school-color modal-school-color color-form" 
+							data-color="{{ color }}"
+							data-key="{{ key }}">
+							<div class="color-checkmark">
+								<span class="glyphicon glyphicon-ok"></span>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+				   There are no available school colors.
+				{% endif %}
+			</div>
+		</modal-body>
+
+		<modal-footer>
+			
+		</modal-footer>
+		</form>
+	</modal-content>
+
+	<modal-content id="add-schoolyear">
+		<modal-head>
+			{% trans "Add New School Year" %}
+		</modal-head>
+
+		<form class="modal-form" action="{% url 'school_years:school_year_save' %}"  method="POST">
+		<modal-body>
+			{% csrf_token %}
+			{% bootstrap_field school_year_form.start_date addon_after=glyphicon_calendar placeholder="2017-04-15" %}
+			{% bootstrap_field school_year_form.end_date addon_after=glyphicon_calendar placeholder="2018-03-31" %}
+		</modal-body>
+
+		<modal-footer>
+		</modal-footer>
+		</form>
+	</modal-content>
+
+</div>

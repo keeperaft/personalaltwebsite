@@ -1,0 +1,20 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+<tr>
+	<td><span class="input-period-number"></span></td>
+	<td>
+		<input name="start-time" class="form-control start-time" placeholder="09:35" type="text">
+	</td>
+	<td>
+		<input name="end-time" class="form-control end-time" placeholder="14:35" type="text">
+	</td>
+	<td>
+		<button 
+			class="btn btn-secondary btn-add-new-time-period" 
+			data-url="/schedules/add_new_time_period"
+			data-period-type-id="{{ period_profiles.type.id }}">
+				{{ glyphicon_plus }} {% trans "Add" %}
+			</button>
+	</td>
+</tr>

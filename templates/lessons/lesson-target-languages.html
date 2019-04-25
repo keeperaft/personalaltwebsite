@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+{% bootstrap_icon "download" as glyphicon_download %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+
+<div class="row">
+	<div class="col-sm-5 page-subsubheader-left">
+		{% trans "Target Languages" %}
+	</div>
+	<div class="col-sm-7 page-subsubheader-right">
+		{% if lesson.target_languages %}
+		<a href="/lessons/download_all_target_languages/{{ lesson.id }}">
+			<button 
+				type="button" 
+				name="download-all-target-languages"
+				class="btn btn-primary download-all">
+					{{ glyphicon_download }} {% trans "Download All" %}
+			</button>
+		</a>		
+		{% endif %}
+	</div>
+</div>
+{% if lesson.target_languages %}
+	{% with lesson.target_languages as target_languages %}
+	{% include "lessons/target-language-table.html" %}
+	{% endwith %}
+{% else %}
+<div class="row">
+	<div class="col-sm-12 center-align">
+		{% trans 'There are no target languages available for this lesson. <br/> Would you like to' %} <a class="cursor-pointer" data-toggle="modal" data-target="#add-target-language-{{ lesson.id }}">{% trans 'add a new target language?' %}</a>
+	</div>
+</div>
+{% endif %}

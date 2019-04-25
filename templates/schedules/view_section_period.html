@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Class Period" %}
+{% endblock title %}
+
+{% block additional_js %}
+<script src="{% static "js/schedules/view_section_period.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% bootstrap_icon "edit" as glyphicon_edit %}
+	{% bootstrap_icon "pencil" as glyphicon_pencil %}
+	<a href="/schedules/view_schedule/{{ school_year_id }}/{{ school_id }}/{{ date.year }}/{{ date.month }}"> 
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		{% trans "Back to Schedule Management page" %}
+
+	</a>
+	<div class="hidden remove-me">
+		<modal-content id="edit-lesson-hour">
+			<modal-head>
+				{% trans "Edit Lesson/Hour" %}
+			</modal-head>
+
+			<form class="modal-form" action="/schedules/edit_lesson_hour" method="POST">				
+			<modal-body>
+				{% csrf_token %}
+				<input type="hidden" id="section-period-id" name="section_period_id" value="{{ section_period_id }}"/>
+
+				{% bootstrap_field edit_lesson_hour_form.lesson_number addon_after=glyphicon_pencil placeholder="2" %}
+
+				{% bootstrap_field edit_lesson_hour_form.hour_number addon_after=glyphicon_pencil placeholder="3" %}
+			</modal-body>
+
+			<modal-footer>
+				
+			</modal-footer>
+			</form>
+		</modal-content>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 page-header-left">
+			{% trans "Class Period Information" %}
+		</div>
+		<div class="col-sm-4 page-header-right">
+			<button class="btn btn-primary edit-lesson-hour-button"
+				data-toggle="modal" 
+				data-target="#edit-lesson-hour">
+				{{ glyphicon_edit }} {% trans "Edit Lesson/Hour" %}
+			</button>
+		</div>
+	</div>
+	<table class="table table-hover margin-top-5">
+		<tr>
+			<th class="col-xs-3">{% trans "Time Information" %}</th>
+			<td>{{ date }}, {% trans "Period " %}{{ period }}{% trans "<span class='japanese-hour'></span>" %}</td>
+		</tr>
+		<tr>
+			<th>{% trans "Class Information" %}</th>
+			<td>{{ school_name }}, {% trans "Class " %}{{ section_name }}{% trans "<span class='japanese-section'></span>" %}</td>
+		</tr>
+		<tr>
+			<th>{% trans "Lesson Information" %}</th>
+			<td>
+				{% if course %}
+					{{ course }}, 
+				{% endif %}
+				{% trans "Lesson" %} {{ lesson_number }}, {% trans "Hour" %} {{ hour_number }} {% trans "<span class='japanese-hour'></span>" %}
+			</td>
+		</tr>
+	</table>
+	
+	{% include "lessons/lesson-plan-information.html" %}
+{% endblock content %}

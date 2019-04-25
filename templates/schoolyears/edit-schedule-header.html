@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<a href="/schoolyears/{{ selected_school_year.id }}"> 
+	<span class="glyphicon glyphicon-chevron-left"></span>
+	{% trans "Back to school year page" %}
+</a>
+
+<div class="hidden" 
+	id="calendar-data" 
+	data-calendar-data="{{ schedule_json }}" 
+	data-url="../save_calendar/" 
+	data-school-year-id="{{ selected_school_year.id }}">
+</div>
+
+<div class="fixed-saving">{% trans "Saving..." %}</div>

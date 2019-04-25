@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+{% bootstrap_icon "download" as glyphicon_download %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+{% bootstrap_icon "pencil" as glyphicon_pencil %}
+
+<table class="table table-hover margin-top-5 flashcard-table">
+	<tr>
+		<th class="col-xs-2">{% trans "Name" %}</th>
+		<th class="col-xs-1 hidden-xs">{% trans "Orientation" %}</th>
+		<th class="col-xs-2 hidden-xs">{% trans "Layout" %}</th>
+		<th>{% trans "Notes" %}</th>
+		<th class="col-xs-5 page-subsubheader-right">{% trans "Actions" %}</th>
+	</tr>
+	{% for flashcard_lesson in flashcard_lessons %}
+	<tr>
+		<td>
+			{{ flashcard_lesson.flashcard.label }}<br/>
+			{% if display_lesson_information %}
+				<span class="small text-muted">({{ flashcard_lesson.lesson }})</span>
+			{% endif %}
+		</td>
+		<td class="hidden-xs">{{ flashcard_lesson.flashcard.get_readable_orientation }}</td>
+		<td class="font-size-090 hidden-xs">{{ flashcard_lesson.flashcard.get_readable_layout }}</td>
+		<td>{{ flashcard_lesson.flashcard.notes }}</td>
+		<td class="page-subsubheader-right">
+			<a href="/lessons/download_flashcard/{{ flashcard_lesson.flashcard.id }}">
+				<button type="button" class="btn btn-secondary download-flashcard-button">
+					{{ glyphicon_download }} {% trans "Download" %}
+				</button>
+			</a>
+		</td>	
+	</tr>
+	{% endfor %}
+</table>

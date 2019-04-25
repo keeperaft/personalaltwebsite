@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Edit Schedule" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/schoolyears/index.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block additional_js %}
+<script src="{% static "js/filesaver.min.js" %}"></script>
+<script src="{% static "js/schoolyears/calendar-view.js" %}"></script>
+<script src="{% static "js/schoolyears/calendar-edit.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+{% include "schoolyears/edit-schedule-header.html" %}
+{% include "schoolyears/edit-overall-schedule.html" %}
+{% include "schoolyears/edit-schedule-instructions.html" %}
+{% include "schoolyears/edit-schedule-main-calendar.html" %}
+
+{% endblock content %}

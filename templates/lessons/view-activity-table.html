@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load bootstrap3 %}
+{% bootstrap_icon "info-sign" as glyphicon_info_sign %}
+<table class="table table-hover padding-5 margin-top-5">
+<tr>
+	<th class="col-xs-3">{% trans "Name" %}</th>
+	<th class="col-xs-2">{% trans "Materials" %}</th>
+	<th class="col-xs-4 page-subsubheader-right">{% trans "Actions" %}</th>
+</tr>
+{% for activity in activities %}
+<tr>
+	<td>
+		{{ activity.activity_name }}
+	</td>
+	<td>
+		{% if activity.materials %}
+			{{ activity.materials }}
+		{% else %}
+			<i>N/A</i>
+		{% endif %}
+	</td>
+	<td class="page-subsubheader-right">
+		<a href="/lessons/view_activity/{{ activity.id }}">
+			<button class="btn btn-primary">
+				{{ glyphicon_info_sign }} {% trans "View" %}
+			</button>
+		</a>
+	</td>
+</tr>
+{% endfor %}
+</table>

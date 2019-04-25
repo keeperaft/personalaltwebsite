@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Book:" %} {{ course.course_name }}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/lessons/courses.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block additional_js %}
+<script src="{% static "js/lessons/courses.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% if course %}
+		{% include "lessons/course-header.html" %}
+		{% include "lessons/lesson-main-header.html" %}
+		<table class="table table-hover margin-top-5">
+			<tr>
+				<th class="col-xs-2">{% trans "Lesson Number" %}</th>
+				<th class="col-xs-5">{% trans "Lesson Title" %}</th>
+				<th class="col-xs-5 page-subheader-right">{% trans "Actions" %}</th>
+			</tr>
+		{% if all_lessons %}
+			{% for lesson in all_lessons %}
+			<tr>
+				<td>{% trans "Lesson" %} <span class="lesson-number">{{ lesson.lesson_number }}</span>
+				</td>
+				<td>
+					{{ lesson.title }}
+				</td>
+				<td class="page-subheader-right">
+					<a href="/lessons/view_lesson/{{ course.id }}/{{ lesson.id }}">
+						<button class="btn-primary btn">
+							{% bootstrap_icon "info-sign" %} {% trans "View" %}
+						</button>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="3" class="center-align">
+					{% trans 'There are no lessons available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-lesson" id="add-lesson-from-content">add a new lesson?</a>' %}
+				</td>
+			</tr>
+		{% endif %}
+		</table>
+	{% else %}
+		<div class="row">
+			<div class="col-sm-12 center-align">
+				{% trans 'There are no books available. <br/> Would you like to <a class="cursor-pointer" data-toggle="modal" data-target="#add-course" id="add-course-from-content">add a new book?</a>' %}
+			</div>
+		</div>
+	{% endif %}
+	<br/>
+	<br/>
+{% endblock content %}

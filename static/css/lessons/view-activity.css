@@ -1,0 +1,26 @@
+.activity-information {
+	padding-left: 25px;
+}
+
+.activity-row {
+	border-bottom: 1px solid #EEE;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.activity-row:hover {
+	background-color: #EFEFEF;
+}
+
+.no-hover-color:hover {
+	background-color: #FFF;
+}
+
+.activity-header {
+	font-weight: 800;
+	font-size: 1.0em;
+}
+
+.activity-description {
+	padding-left: 35px;
+}

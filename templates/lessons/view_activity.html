@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap3 %}
+
+{% block title %}
+{% trans "View Activity" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/lessons/view-activity.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block content %}
+
+{% bootstrap_icon "edit" as glyphicon_edit %}
+{% bootstrap_icon "plus" as glyphicon_plus %}
+
+<div class="lesson-activity">
+	<div class="row">
+		<div class="col-xs-9 page-header-left">{% trans "View Activity" %}</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row activity-row no-hover-color">
+				<div class="col-xs-12 page-subheader-left">
+					{{ activity.activity_name }}
+				</div>
+			</div>
+			<div class="row activity-row">
+				<div class="col-xs-1 activity-header">
+					{% trans "Description" %}
+				</div>
+				<div class="col-xs-11 activity-description">
+					{{ activity.description|linebreaks }}
+				</div>
+			</div>
+			{% if activity.is_generic_activity %}
+			<div class="row activity-row">
+				<div class="col-xs-1 activity-header">
+					{% trans "Portion" %}
+				</div>
+				<div class="col-xs-11 activity-description">
+					{{ activity.activity_portion_type }}
+				</div>
+			</div>
+			{% endif %}
+			<div class="row activity-row">
+				<div class="col-xs-1 activity-header">
+					{% trans "Materials" %}
+				</div>
+				<div class="col-xs-11 activity-description">
+					{% if activity.materials != ''%}
+						{{ activity.materials }}
+					{% else %}
+						<i>N/A</i>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	{% include "lessons/handouts-worksheets.html" %}
+</div>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Schedule Manager" %}
+{% endblock title %}
+
+{% block additional_js %}
+<script src="{% static "js/schedules/schedule-manager.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% bootstrap_icon "calendar" as glyphicon_calendar %}
+	<div class="row">
+		<div class="col-xs-12 page-header-left">
+			{% trans "Schedule Manager" %}
+		</div>
+	</div>
+	<table class="table table-hover padding-5" id="schedule-manager-table">
+		<tr>
+			<th class="col-sm-3">{% trans "School Year" %}</th>
+			<td> 
+				<select class="form-control" 
+					id="schedule-manager-school-year" 
+					name="school-year">
+					{% for item in all_school_years %}
+						<option value="{{ item.school_year.id }}" 
+							data-start-month="{{ item.school_year.start_date.month }}"
+							data-start-year="{{ item.school_year.start_date.year }}"
+							data-end-month="{{ item.school_year.end_date.month }}"
+							data-end-year="{{ item.school_year.end_date.year }}"
+							data-schools="{{ item.schools }}">
+							{{ item.school_year.name }}
+						</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-sm-3">{% trans "School" %}</th>
+			<td id="schedule-manager-school-dropdown-cell">
+				<select disabled="true" class="form-control">
+					<option>{% trans "Loading" %}</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-sm-3">{% trans "Month" %}</th>
+			<td id="schedule-manager-month-dropdown-cell"> 
+				<select disabled="true" class="form-control">
+					<option>{% trans "Loading" %}</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-5">
+			<a href="#" id="view-schedule-link">
+				<button class="btn btn-primary" type="submit" name="view-schedule-button">
+					{{ glyphicon_calendar }} {% trans "View Schedule" %}
+				</button>
+			</a>
+		</div>
+	</div>
+{% endblock content %}

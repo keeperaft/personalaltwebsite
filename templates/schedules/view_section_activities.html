@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "View Section Activities" %}
+{% endblock title %}
+
+{% block content %}
+	<a href="/schedules/view_section/{{ section.school_section.id }}"> 
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		{% trans "Back to " %} {{ section.school_section.school.name }}: 
+			{% if section.school_section.is_special_needs %}
+				{% trans "Special Needs" %}
+			{% else %}
+				{% trans "Grade " %}{{ section.school_section.year_level }}
+				{% trans "<span class='japanese-year-level'></span>" %}
+			{% endif %}
+		{% trans "<span class='japanese-back-to-view-section'></span>" %}
+	</a>
+	<div class="row">
+		<div class="col-xs-12 page-subheader-left">
+			{% trans "Activities Finished Per Section" %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 page-subsubheader-left">
+			{% with section.school_section.is_special_needs as is_special_needs %}
+			{% with section.school_section.year_level as year_level %}
+			{% with section.section_name as section_name %}
+				{% include "section-name-base.html" %}
+			{% endwith %}
+			{% endwith %}
+			{% endwith %}
+			(Classes held: {{ all_activities.count }})
+		</div>
+	</div>
+	<table class="table table-hover">
+		<tr>
+			<th class="col-xs-1">{% trans "Date" %}</th>
+			<th class="col-xs-1">{% trans "Greeting" %}</th>
+			<th class="col-xs-2">{% trans "Warmup" %}</th>
+			<th class="col-xs-2">{% trans "Presentation" %}</th>
+			<th class="col-xs-2">{% trans "Practice" %}</th>
+			<th class="col-xs-2">{% trans "Production" %}</th>
+			<th class="col-xs-1">{% trans "Cooldown" %}</th>
+			<th class="col-xs-1">{% trans "Assessment" %}</th>
+		</tr>
+		{% if all_activities.all_classes %}
+		{% for class in all_activities.all_classes %}
+		<tr>
+			<td>{{ class.date|date:"m/d" }}</td>
+			<td>
+				{% if class.lesson_plan.greeting is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.greeting.id }}">
+					{{ class.lesson_plan.greeting }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.warmup is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.warmup.id }}">
+					{{ class.lesson_plan.warmup }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.presentation is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.presentation.id }}">
+					{{ class.lesson_plan.presentation }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.practice is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.practice.id }}">
+					{{ class.lesson_plan.practice }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.production is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.production.id }}">
+					{{ class.lesson_plan.production }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.cooldown is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.cooldown.id }}">
+					{{ class.lesson_plan.cooldown }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+			<td>
+				{% if class.lesson_plan.assessment is not None %}
+				<a href="/lessons/view_activity/{{ class.lesson_plan.assessment.id }}">
+					{{ class.lesson_plan.assessment }}
+				</a>
+				{% else %}
+				<i>N/A</i>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<tr>
+			<td colspan="8" class="vertical-center">
+				<i>{% trans "Classes have not been held for this section yet." %}</i>
+			</td>
+		</tr>
+		{% endif %}
+	</table>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% load i18n %}
+<div class="row">
+	<h2>
+		<div class="col-sm-6">
+			{% trans "Edit Overall Schedule" %}
+		</div>
+		<div class="col-sm-6 text-align-right" id="school-year-name">
+			{{ active_school_year.name }}
+		</div>
+	</h2>
+</div>
+<br/>
+<div class="row edit-schedule-row">
+	<div class="col-xs-1 hidden-xs">
+		<div id="edit-school-color"
+			data-default-color="#{{ all_schools.0.school_colors }}"
+			data-selected-value="{{ all_schools.0.id }}">
+		</div>
+	</div>
+	<div class="col-xs-3 active-school">{% trans "Active School:" %}</div>
+	<div class="col-xs-8 active-school-dropdown">
+		<select class="form-control">
+			{% get_current_language as LANGUAGE_CODE %}
+			{% for school in all_schools %}
+				<option value="{{ school.id }}" 
+					data-color="#{{ school.school_colors }}">
+					{% if LANGUAGE_CODE == 'en' %}
+						{{ school.name }}
+					{% else %}
+						{{ school.name_kanji }}
+					{% endif %}
+				</option>
+			{% endfor %}
+		</select>
+	</div>
+</div>
+<hr/>

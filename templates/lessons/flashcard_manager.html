@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Flashcard Manager" %}
+{% endblock title %}
+
+{% block additional_css %}
+<link type="text/css" rel="stylesheet" href="{% static "css/lessons/courses.css" %}" media="screen"/>
+{% endblock additional_css %}
+
+{% block additional_js %}
+<script src="{% static "js/lessons/flashcard-manager.js" %}"></script>
+<script src="{% static "js/lessons/courses.js" %}"></script>
+<script src="{% static "js/lessons/lesson-flashcards.js" %}"></script>
+{% endblock additional_js %}
+
+{% block content %}
+	{% bootstrap_icon "search" as glyphicon_search %}
+	{% include "lessons/generate_flashcard.html" %}
+	{% include "lessons/generate_target_language.html" %}
+	<div class="row">
+		<div class="col-sm-6 page-header-left">
+			{% trans "Flashcard Manager" %}
+		</div>
+		<div class="col-sm-6 page-header-right">
+			<button 
+				type="button" 
+				class="btn btn-secondary" 
+				data-toggle="modal" 
+				name="generate-target-language"
+				data-target="#generate-target-language">
+					{% bootstrap_icon "export" %} {% trans "Generate Target Language" %}
+			</button>
+			<button 
+				type="button" 
+				class="btn btn-primary" 
+				data-toggle="modal" 
+				name="generate-flashcard"
+				data-target="#generate-flashcard">
+					{% bootstrap_icon "export" %} {% trans "Generate Flashcard" %}
+			</button>
+		</div>
+	</div>
+	<table class="table table-hover padding-5">
+		<tr>
+			<th class="col-sm-3">{% trans "Search Term" %}</th>
+			<td>
+				<input type="text" class="form-control" id="search-term" name="search" placeholder="(e.g.: &quot;Fruits&quot;, &quot;Basketball&quot;)" {% if search_term %}value="{{ search_term }}"{% endif %}>
+			</td>
+		</tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-5">
+			<a href="#" id="a-search-flashcard">
+				<button class="btn btn-primary" id="btn-search-flashcard">
+					{{ glyphicon_search }} {% trans "Search" %}
+				</button>			
+			</a>
+		</div>
+	</div>
+
+	{% if search_term %}
+		<hr/>
+		<div class="row">
+			<div class="col-xs-12 page-header-left">
+				{% trans "Flashcard Search Results" %}: {{ flashcard_lessons.count }} {% trans "Result(s)" %}
+			</div>
+		</div>
+		{% if flashcard_lessons %}
+			{% include "lessons/flashcard-table.html" %}
+		{% else %}
+			<div class="row">
+				<div class="col-sm-12 center-align">
+					{% trans 'Your flashcard search yielded no results for the following search term:' %} "{{ search_term }}"{% trans "<span class='japanese-no-results'></span>" %}
+				</div>
+			</div>
+		{% endif %}
+		<br/>
+		<div class="row">
+			<div class="col-xs-12 page-header-left">
+				{% trans "Target Language Search Results" %}: {{ target_languages.count }} {% trans "Result(s)" %}
+			</div>
+		</div>
+		{% if target_languages %}
+			{% include "lessons/target-language-table.html" %}
+		{% else %}
+			<div class="row">
+				<div class="col-sm-12 center-align">
+					{% trans 'Your target language search yielded no results for the following search term:' %} "{{ search_term }}"{% trans "<span class='japanese-no-results'></span>" %}
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
+{% endblock content %}
