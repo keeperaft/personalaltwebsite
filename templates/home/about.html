@@ -15,6 +15,7 @@
 {% endblock additional_js %}
 
 {% block content %}
+	<img id="paw-icon-black" class="hidden" height="50" width="50" src="{% static 'images/paw-icon-black.svg' %}"/>
 	<div class="row">
 		<div class="col-xs-12 page-header-left">
 			{% trans "About" %}
@@ -26,6 +27,7 @@
 		</div>
 	</div>
 	<br/>
+	{% trans "<div class='hidden' id='about-description'></div>" %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
 			{% trans "Feature Summary and Overview" %}
@@ -90,29 +92,30 @@
 		<div class="col-xs-12">
 			<ul>
 				<li>{% trans "If you find any bugs, or found any improperly tagged flashcards, you can report it " %}<a href="https://docs.google.com/forms/d/1Mi2nfuZ7x41PEXiPeuNJx06-NQ1kNXkKta3aGnRrkNs">{% trans "here." %}</a></li>
-				<li>{% trans "If you would like to suggest new features, you can fo it " %}<a href="https://docs.google.com/forms/d/10IDdiRfPbH6zxtADjsMdG0APth8shUU-clqoQjJn2pA">{% trans "here." %}</a></li>
-				<li>{% trans "Click <a href='https://github.com/keeperaft/personalaltwebsite/'>here</a> to view the repository in GitHub." %}</li>
+				<li>{% trans "If you would like to suggest new features, you can do it " %}<a href="https://docs.google.com/forms/d/10IDdiRfPbH6zxtADjsMdG0APth8shUU-clqoQjJn2pA">{% trans "here." %}</a></li>
 			</ul>
 		</div>
 	</div>
+	{% blocktrans %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
-			{% trans "Developer Information and Message" %}
+		Developer Information and Message
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
 			<p>
-			{% trans "Hello! I used to be a professional software engineer, dealing with web and mobile technologies before becoming an ALT. I've switched between front-end (client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in various projects during my software engineering career." %}
+			Hello! I used to be a professional software engineer, dealing with web and mobile technologies before becoming an ALT. I've switched between front-end (client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in various projects during my software engineering career.
 			</p>
 			<p>
-			{% trans "After becoming an ALT, I noticed that a lot of things would become way easier and much more convenient if there was a centralized system managing everything, and automating things that can be automated." %}
+			After becoming an ALT, I noticed that a lot of things would become way easier and much more convenient if there was a centralized system managing everything, and automating things that can be automated.
 			</p>
 			<p>
-			{% trans "Thank you for taking the time to read this. I hope that this system is helpful!" %}
+			Thank you for taking the time to read this. I hope that this system is helpful!
 			</p>
 		</div>
 	</div>
+	{% endblocktrans %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
 			License
