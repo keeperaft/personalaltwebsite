@@ -120,10 +120,10 @@
                 <div class="row">
                     <div id="paw-icon">
                         <img alt="Header Icon"
-                             height="50"
-                             width="50"
-                             src="{% static "images/paw-icon.svg" %}"
-                        />
+                            id="header-icon"
+                            height="50"
+                            width="50"
+                            src="{% static 'images/paw-icon.svg' %}"/>
                     </div>
                     <div class="hidden-xs" id="paw-icon-label">
                         <div id="paw-icon-label-large">PAW<span class="beta-text">BETA DEMO</span></div>
@@ -263,7 +263,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-6" id="footer-copyright">
-                &copy; <span id='copyright-year'></span> Keeperaft
+                &copy; <span id='copyright-year'></span> {% trans "Keeperaft" %}
             </div>
         </div>
     </div>

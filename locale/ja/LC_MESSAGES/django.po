@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 00:34+0900\n"
+"POT-Creation-Date: 2019-06-06 10:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,9 +69,9 @@ msgid "Settings"
 msgstr "設定"
 
 #: home/constants.py:64 templates/home/about.html:6
-#: templates/home/about.html:20
+#: templates/home/about.html:21
 msgid "About"
-msgstr "PAWについて"
+msgstr "PAWとは？"
 
 #: lessons/constants.py:58
 msgid "Activity"
@@ -991,7 +991,11 @@ msgid ""
 "This is just a demo at the moment. Note that any changes made will be reset."
 msgstr "これはデモ版ですので、1日1回自動的にデータベースをリセットします。"
 
-#: templates/home/about.html:25
+#: templates/base.html:266
+msgid "Keeperaft"
+msgstr "キーファー"
+
+#: templates/home/about.html:26
 msgid ""
 "PAW stands for Personal ALT Website, whereas ALT stants for Assistant "
 "Language Teacher. It is a tool used to help make the lives of ALTs even "
@@ -999,17 +1003,26 @@ msgid ""
 "system is tailored to ALTs, it is possible to modify it to suit the needs of "
 "teachers in general."
 msgstr ""
-"PAWは「(P)パーソナル(A)ALT(W)ウェブサイト」の略称です。ALTは英語教師の「(A)ア"
-"シスタント(L)ラングエッジ(T)ティーチャー」の略称です。「Paw」は日本語で「肉"
-"球」なので、アイコンは肉球になります。PAWは英語教師の生活を簡単にするサイトで"
-"す。英語教師のために作りましたけど、一般的な教師のために修正することができま"
-"す。"
+"PAWは、「P=パーソナル、A=ALT（外国語補助教員）W=ウェブサイト」の略で、シンボ"
+"ルマークの「<header-icon></header-icon>」は、英語のpaw（動物の肉球）をモチー"
+"フにしています。PAWは、もちろんALTだけのものでなく、一般学校教員の方々の業務"
+"の負担を軽減し、効率化することができます。"
 
-#: templates/home/about.html:31
+#: templates/home/about.html:30
+msgid "<div class='hidden' id='about-description'></div>"
+msgstr ""
+"<div class='row'><div class='col-xs-12 page-header-left'>ご挨拶</div></"
+"div><div class='row'><div class='col-xs-12'>初めまして。システム開発者のキー"
+"ファーと申します。現在、相模原市でALTとして勤務 しておりますが、以前はソフト"
+"ウェアエンジニアとして、デザインからシステム構築まで 手掛けておりました。これ"
+"までの幅広い経験と知識を活かし、ご利用者様のご要望を把握 し、最適且つ効率的な"
+"スケジュール管理をご提案・ご提供して参ります。</div></div><br/>"
+
+#: templates/home/about.html:33
 msgid "Feature Summary and Overview"
-msgstr "機能概要"
+msgstr "機能について"
 
-#: templates/home/about.html:37
+#: templates/home/about.html:39
 msgid ""
 "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/"
 "TiPp5Y76HOM\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
@@ -1019,74 +1032,101 @@ msgstr ""
 "K86SlacCi_c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
 "media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 
-#: templates/home/about.html:44
+#: templates/home/about.html:46
 msgid "Teaching Material Management:"
-msgstr "教材を管理"
+msgstr "教材管理"
+
+#: templates/home/about.html:55
+msgid ""
+"<li>Allows users to store information about the books used, their respective "
+"flashcards, and the activities within them, into the system. (For the demo, "
+"users can view and download them.)</li><li>Allows users <b>to digitally "
+"manage their lesson plans</b> using the activities that were stored into the "
+"database. (For the demo, users can view and download lesson plans.)</"
+"li><li><b>This keeps everything organized and in one place.</b></li>"
+msgstr ""
+"<li>教材、フラッシュカード（絵カード）、アクティビティなどのデータ保存・ダウ"
+"ンロード可能</li><li>授業中に見せるゲームやアクティビティの見本（デモ）の事前"
+"確認がいつでも可能</li><li>指導案作りも、整理されたデータをアレンジすること"
+"で、無駄な時間や作業を省くことができる。</li>"
 
 #: templates/home/about.html:58
 msgid "Class Schedule Management:"
-msgstr "スケジュールを管理"
+msgstr "スケジュール管理"
 
-#: templates/home/about.html:73
+#: templates/home/about.html:67
+msgid ""
+"<li>Allows users to manage year levels, assigning books and storing notes "
+"about each section.</li><li>Users can store their day-to-day class schedule "
+"in the system, and assign lesson plans to them. This information is viewable "
+"in the dashboard and printable for use.</li><li>ALTs usually get their "
+"schedules from their schools in paper form, which results in the ALT having "
+"to maintain a ton of sheets. <b>Having it all stored digitally prevents loss "
+"of information due to schedule misplacement.</b></li><li>With different "
+"sections from different schools, ALTs would need to keep track of which "
+"class is in which lesson, and <b>having it all stored and organized "
+"digitally lifts the burden of remembering everything from the ALT.</b></li>"
+msgstr ""
+"<li>複数校を担当するALTの授業の引き継ぎなどのスケジュール管理することで、負担"
+"を軽くし、連絡の行き違いや誤解などによるトラブルを防止。</li><li>このように、"
+"日々の授業スケジュール管理から指導案の作成まで、全ての業務がこのシステムを使"
+"うことによってスムーズにいくように作られています。</li>"
+
+#: templates/home/about.html:70
 msgid "School Year Information Management:"
-msgstr "学年情報を管理"
+msgstr "学年情報管理"
 
-#: templates/home/about.html:86
+#: templates/home/about.html:83
 msgid "Bugs and Enhancements"
-msgstr "バグと機能"
+msgstr "不具合対応"
 
-#: templates/home/about.html:92
+#: templates/home/about.html:89
 msgid ""
 "If you find any bugs, or found any improperly tagged flashcards, you can "
 "report it "
-msgstr "バグか日本語かフラッシュカードのミスが見つかったら、"
+msgstr "不具合や翻訳・フラッシュカードの間違いなどがある場合は、"
 
-#: templates/home/about.html:92 templates/home/about.html:93
+#: templates/home/about.html:89 templates/home/about.html:90
 msgid "here."
-msgstr "ここでクリックして下さい。"
+msgstr "こちらをクリックしてください。"
 
-#: templates/home/about.html:93
-msgid "If you would like to suggest new features, you can fo it "
-msgstr "新しい機能が示唆したいなら、"
+#: templates/home/about.html:90
+msgid "If you would like to suggest new features, you can do it "
+msgstr "追加機能のご要望はこちらまで、"
 
 #: templates/home/about.html:94
 msgid ""
-"Click <a href='https://github.com/keeperaft/personalaltwebsite/'>here</a> to "
-"view the repository in GitHub."
-msgstr ""
-"GitHubでソースコードを読みたい方のは<a href=\"https://github.com/keeperaft/"
-"personalaltwebsite/\">こちらです</a>。"
-
-#: templates/home/about.html:100
-msgid "Developer Information and Message"
-msgstr "プログラマー情報とメッセージ"
-
-#: templates/home/about.html:106
-msgid ""
-"Hello! I used to be a professional software engineer, dealing with web and "
-"mobile technologies before becoming an ALT. I've switched between front-end "
-"(client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in "
-"various projects during my software engineering career."
-msgstr ""
-"こんにちは、キープと申します。ALTになる前の仕事はウェブとモバイルのソフトウェ"
-"アエンジニアでした。フロントエンドとバックエンドは両方やったことありました。"
-
-#: templates/home/about.html:109
-msgid ""
-"After becoming an ALT, I noticed that a lot of things would become way "
+"\n"
+"\t<div class=\"row\">\n"
+"\t\t<div class=\"col-xs-12 page-subheader-left\">\n"
+"\t\tDeveloper Information and Message\n"
+"\t\t</div>\n"
+"\t</div>\n"
+"\t<div class=\"row\">\n"
+"\t\t<div class=\"col-xs-12\">\n"
+"\t\t\t<p>\n"
+"\t\t\tHello! I used to be a professional software engineer, dealing with web "
+"and mobile technologies before becoming an ALT. I've switched between front-"
+"end (client-side/UI/UX/etc.) and back-end (server-side/background logic/"
+"etc.) in various projects during my software engineering career.\n"
+"\t\t\t</p>\n"
+"\t\t\t<p>\n"
+"\t\t\tAfter becoming an ALT, I noticed that a lot of things would become way "
 "easier and much more convenient if there was a centralized system managing "
-"everything, and automating things that can be automated."
+"everything, and automating things that can be automated.\n"
+"\t\t\t</p>\n"
+"\t\t\t<p>\n"
+"\t\t\tThank you for taking the time to read this. I hope that this system is "
+"helpful!\n"
+"\t\t\t</p>\n"
+"\t\t</div>\n"
+"\t</div>\n"
+"\t"
 msgstr ""
-"ALTになった後で簡単にできる事がたくさんありますから、このシステムを作りまし"
-"た。"
+"\n"
+"<div class='hidden'></div>"
 
-#: templates/home/about.html:112
-msgid ""
-"Thank you for taking the time to read this. I hope that this system is "
-"helpful!"
-msgstr "お時間を割いていただきありがとうございます。よろしくお願い致します。"
-
-#: templates/home/about.html:118
+#: templates/home/about.html:136
 msgid "System Specifications"
 msgstr "仕様"
 
