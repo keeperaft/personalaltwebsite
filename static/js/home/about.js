@@ -15,10 +15,20 @@ ABOUT.loadAboutImages = function() {
 				'alt':'Loading...'
 			});
 		$this.replaceWith(image);
-	})
-
+	});
 };
+
+ABOUT.headerIcon = function(element) {
+	var $element = $(element),
+		header_icon = $('#paw-icon-black').attr('src'),
+		$header_icon = $('<img/>', {
+			'src': header_icon,
+			'width': '30',
+		});
+	$element.replaceWith($header_icon);
+}
 
 $(document).ready(function(){
 	ABOUT.loadAboutImages();
+	BASE.registerCustomTag('header-icon', ABOUT.headerIcon);
 });

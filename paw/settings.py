@@ -11,6 +11,9 @@ import os, sys
 from django.utils.translation import ugettext_lazy as _
 from decouple import config
 
+# Are we testing?
+TESTING = sys.argv[1] == 'test'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,17 +32,6 @@ ALLOWED_HOSTS = [config('ALLOWED_HOSTS'), 'localhost']
 LOGIN_URL = '/login'
 # Application definition
 
-# Storage
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-AWS_STATIC_LOCATION = config('AWS_LOCATION')
-AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
-
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-
 INSTALLED_APPS = [
     'schoolyears.apps.SchoolyearsConfig',
     'schedules.apps.SchedulesConfig',
@@ -53,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'whitenoise',
-    'django_cleanup',
-    'storages',
+    'django_cleanup'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +61,8 @@ MIDDLEWARE = [
 ]
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if not TESTING:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
 ROOT_URLCONF = 'paw.urls'
 
@@ -96,16 +88,25 @@ WSGI_APPLICATION = 'paw.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+
+# Test database for development
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -144,17 +145,19 @@ USE_TZ = True
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
-LANGUAGES = (
-    ('en', _('English')),
-    ('ja', _('Japanese')),
-)
+if not TESTING:
+    LANGUAGES = (
+        ('en', _('English')),
+        ('ja', _('Japanese')),
+    )
+else:
+    LANGUAGES = (
+        ('en', _('English')),
+    )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION) 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
-STATICFILES_DIRS = (os.path.join('static'),)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-DEFAULT_FILE_STORAGE = 'paw.storage_backends.MediaStorage'
+STATIC_URL = 'static/' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+# STATICFILES_DIRS = (os.path.join('static'),)

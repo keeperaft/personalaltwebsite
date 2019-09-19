@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 00:34+0900\n"
+"POT-Creation-Date: 2019-09-19 23:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -532,11 +532,11 @@ msgstr "中学校"
 msgid "High School"
 msgstr "高校"
 
-#: paw/settings.py:148
+#: paw/settings.py:150 paw/settings.py:155
 msgid "English"
 msgstr "英語"
 
-#: paw/settings.py:149
+#: paw/settings.py:151
 msgid "Japanese"
 msgstr "日本語"
 
@@ -1086,7 +1086,7 @@ msgid ""
 "helpful!"
 msgstr "お時間を割いていただきありがとうございます。よろしくお願い致します。"
 
-#: templates/home/about.html:118
+#: templates/home/about.html:138
 msgid "System Specifications"
 msgstr "仕様"
 
