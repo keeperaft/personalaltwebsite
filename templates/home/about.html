@@ -15,6 +15,7 @@
 {% endblock additional_js %}
 
 {% block content %}
+	<img id="paw-icon-black" class="hidden" height="50" width="50" src="{% static 'images/paw-icon-black.svg' %}"/>
 	<div class="row">
 		<div class="col-xs-12 page-header-left">
 			{% trans "About" %}
@@ -26,6 +27,7 @@
 		</div>
 	</div>
 	<br/>
+	{% trans "<div class='hidden' id='about-description'></div>" %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
 			{% trans "Feature Summary and Overview" %}
@@ -50,9 +52,7 @@
 					</div>
 				</div>
 				<ul>
-					<li>Allows users to store information about the books used, their respective flashcards, and the activities within them, into the system. (For the demo, users can view and download them.)</li>
-					<li>Allows users <b>to digitally manage their lesson plans</b> using the activities that were stored into the database. (For the demo, users can view and download lesson plans.)</li>
-					<li><b>This keeps everything organized and in one place.</b></li>
+					{% trans "<li>Allows users to store information about the books used, their respective flashcards, and the activities within them, into the system. (For the demo, users can view and download them.)</li><li>Allows users <b>to digitally manage their lesson plans</b> using the activities that were stored into the database. (For the demo, users can view and download lesson plans.)</li><li><b>This keeps everything organized and in one place.</b></li>" %}
 				</ul>
 				<br/>
 				<li><h4>{% trans "Class Schedule Management:" %}</h4></li>
@@ -64,10 +64,7 @@
 					</div>
 				</div>
 				<ul>
-					<li>Allows users to manage year levels, assigning books and storing notes about each section.</li>
-					<li>Users can store their day-to-day class schedule in the system, and assign lesson plans to them. This information is viewable in the dashboard and printable for use.</li>
-					<li>ALTs usually get their schedules from their schools in paper form, which results in the ALT having to maintain a ton of sheets. <b>Having it all stored digitally prevents loss of information due to schedule misplacement.</b></li>
-					<li>With different sections from different schools, ALTs would need to keep track of which class is in which lesson, and <b>having it all stored and organized digitally lifts the burden of remembering everything from the ALT.</b></li>
+					{% trans "<li>Allows users to manage year levels, assigning books and storing notes about each section.</li><li>Users can store their day-to-day class schedule in the system, and assign lesson plans to them. This information is viewable in the dashboard and printable for use.</li><li>ALTs usually get their schedules from their schools in paper form, which results in the ALT having to maintain a ton of sheets. <b>Having it all stored digitally prevents loss of information due to schedule misplacement.</b></li><li>With different sections from different schools, ALTs would need to keep track of which class is in which lesson, and <b>having it all stored and organized digitally lifts the burden of remembering everything from the ALT.</b></li>" %}
 				</ul>
 				<br/>
 				<li><h4>{% trans "School Year Information Management:" %}</h4></li>
@@ -90,29 +87,30 @@
 		<div class="col-xs-12">
 			<ul>
 				<li>{% trans "If you find any bugs, or found any improperly tagged flashcards, you can report it " %}<a href="https://docs.google.com/forms/d/1Mi2nfuZ7x41PEXiPeuNJx06-NQ1kNXkKta3aGnRrkNs">{% trans "here." %}</a></li>
-				<li>{% trans "If you would like to suggest new features, you can fo it " %}<a href="https://docs.google.com/forms/d/10IDdiRfPbH6zxtADjsMdG0APth8shUU-clqoQjJn2pA">{% trans "here." %}</a></li>
-				<li>{% trans "Click <a href='https://github.com/keeperaft/personalaltwebsite/'>here</a> to view the repository in GitHub." %}</li>
+				<li>{% trans "If you would like to suggest new features, you can do it " %}<a href="https://docs.google.com/forms/d/10IDdiRfPbH6zxtADjsMdG0APth8shUU-clqoQjJn2pA">{% trans "here." %}</a></li>
 			</ul>
 		</div>
 	</div>
+	{% blocktrans %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
-			{% trans "Developer Information and Message" %}
+		Developer Information and Message
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
 			<p>
-			{% trans "Hello! I used to be a professional software engineer, dealing with web and mobile technologies before becoming an ALT. I've switched between front-end (client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in various projects during my software engineering career." %}
+			Hello! I used to be a professional software engineer, dealing with web and mobile technologies before becoming an ALT. I've switched between front-end (client-side/UI/UX/etc.) and back-end (server-side/background logic/etc.) in various projects during my software engineering career.
 			</p>
 			<p>
-			{% trans "After becoming an ALT, I noticed that a lot of things would become way easier and much more convenient if there was a centralized system managing everything, and automating things that can be automated." %}
+			After becoming an ALT, I noticed that a lot of things would become way easier and much more convenient if there was a centralized system managing everything, and automating things that can be automated.
 			</p>
 			<p>
-			{% trans "Thank you for taking the time to read this. I hope that this system is helpful!" %}
+			Thank you for taking the time to read this. I hope that this system is helpful!
 			</p>
 		</div>
 	</div>
+	{% endblocktrans %}
 	<div class="row">
 		<div class="col-xs-12 page-subheader-left">
 			License
