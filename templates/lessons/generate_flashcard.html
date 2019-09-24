@@ -13,7 +13,7 @@
 			{% csrf_token %}
 			<div class="row">
 				<div class="col-xs-12 vertical-center">
-					<img class="add-flashcard-preview-image flashcard-preview-image" src="/{% static 'images/no-preview-image.png' %}" data-original-src="{% static 'images/no-preview-image.png' %}" alt="No preview image">
+					<img class="add-flashcard-preview-image flashcard-preview-image" src="{% static 'images/no-preview-image.png' %}" data-original-src="{% static 'images/no-preview-image.png' %}" alt="No preview image">
 				</div>
 			</div>
 			{% bootstrap_field add_flashcard_form.picture %}
