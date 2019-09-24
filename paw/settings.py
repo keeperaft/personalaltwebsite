@@ -7,6 +7,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+import django_heroku
 import os, sys
 from django.utils.translation import ugettext_lazy as _
 from decouple import config
@@ -26,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS'), 'localhost']
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login'
@@ -99,15 +100,6 @@ WSGI_APPLICATION = 'paw.wsgi.application'
 #     }
 # }
 
-# Test database for development
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -161,3 +153,4 @@ else:
 STATIC_URL = 'static/' 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
 # STATICFILES_DIRS = (os.path.join('static'),)
+django_heroku.settings(locals())
