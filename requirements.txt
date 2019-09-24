@@ -10,3 +10,4 @@ boto3
 django-storages
 python-decouple
 django-cleanup
+django-heroku
