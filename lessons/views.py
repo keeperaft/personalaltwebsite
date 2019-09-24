@@ -178,7 +178,7 @@ def download_all(request, activity_id):
     all_files = ActivityFile.objects.filter(activity=activity)
     zippable_files = []
     for file in all_files:
-        zippable_files.append(os.path.join(settings.MEDIA_ROOT, static('/media/'+str(file.activity_file))))
+        zippable_files.append(os.path.join(settings.MEDIA_ROOT, 'static/media/'+str(file.activity_file)))
 
     zip_subdir = 'all-activity-files'
     zip_filename = 'all-activity-files.zip'

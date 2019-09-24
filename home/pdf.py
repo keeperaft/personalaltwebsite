@@ -595,7 +595,7 @@ def __print_flashcard(pdf_object, flashcard, specified_image=None):
     __write_text(pdf_object, cursor, flashcard.notes)
 
     # Picture, front and center (a little vertically higher if the label is shown)
-    picture = static('/media/'+str(flashcard.picture)) if specified_image == None else specified_image 
+    picture = 'static/media/'+str(flashcard.picture) if specified_image == None else specified_image 
     pdf_object.drawImage(picture, picture_x, picture_y, width=picture_width, height=picture_height, preserveAspectRatio=True, mask='auto')
     
     # Label, bottom, none, or next page
