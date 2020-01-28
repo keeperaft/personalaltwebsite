@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-19 23:40+0900\n"
+"POT-Creation-Date: 2020-01-28 15:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -532,11 +532,11 @@ msgstr "中学校"
 msgid "High School"
 msgstr "高校"
 
-#: paw/settings.py:150 paw/settings.py:155
+#: paw/settings.py:152 paw/settings.py:157
 msgid "English"
 msgstr "英語"
 
-#: paw/settings.py:151
+#: paw/settings.py:153
 msgid "Japanese"
 msgstr "日本語"
 
@@ -1122,17 +1122,9 @@ msgid ""
 "\t\t</div>\n"
 "\t</div>\n"
 "\t"
-msgstr ""
-"\n"
-"<div class='hidden'></div>"
+msgstr "<div class='hidden'></div>"
 
-#: templates/home/about.html:112
-msgid ""
-"Thank you for taking the time to read this. I hope that this system is "
-"helpful!"
-msgstr "お時間を割いていただきありがとうございます。よろしくお願い致します。"
-
-#: templates/home/about.html:138
+#: templates/home/about.html:136
 msgid "System Specifications"
 msgstr "仕様"
 
@@ -2031,3 +2023,9 @@ msgstr "今使っている学年"
 #: templates/schoolyears/school-year-information.html:19
 msgid "This school year is inactive."
 msgstr "使っていない学年"
+
+#~ msgid ""
+#~ "Thank you for taking the time to read this. I hope that this system is "
+#~ "helpful!"
+#~ msgstr ""
+#~ "お時間を割いていただきありがとうございます。よろしくお願い致します。"
