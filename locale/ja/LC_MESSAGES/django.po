@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 15:20+0900\n"
+"POT-Creation-Date: 2020-02-20 20:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -992,8 +992,8 @@ msgid ""
 msgstr "これはデモ版ですので、1日1回自動的にデータベースをリセットします。"
 
 #: templates/base.html:266
-msgid "Keeperaft"
-msgstr "キーファー"
+msgid "Kiefer Yap"
+msgstr "ヤップ　キーファー"
 
 #: templates/home/about.html:26
 msgid ""
@@ -1122,7 +1122,9 @@ msgid ""
 "\t\t</div>\n"
 "\t</div>\n"
 "\t"
-msgstr "<div class='hidden'></div>"
+msgstr ""
+"\n"
+"<div class='hidden'></div>"
 
 #: templates/home/about.html:136
 msgid "System Specifications"
