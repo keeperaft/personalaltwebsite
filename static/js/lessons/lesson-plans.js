@@ -105,7 +105,6 @@ $(document).ready(function(){
 	LESSON_PLANS.prepareModalDropdowns();
 	LESSON_PLANS.prepareLastHourNumber();
 	LESSON_PLANS.changeLessonPlanButtonHref();
-	BASE.alphabeticallyArrangeOptions($('#lesson-plan-course').find('option'));
 
 	$(document)
 		.on('change', '#lesson-plan-course', LESSON_PLANS.populateDropdownValues)

@@ -15,7 +15,7 @@ class CourseManager(models.Manager):
         course_model = apps.get_model(app_label='lessons', model_name='Course')
         lesson_model = apps.get_model(app_label='lessons', model_name='Lesson')
 
-        course_query = course_model.objects.all()
+        course_query = course_model.objects.all().order_by('course_name')
         all_courses = []
 
         for course in course_query:
