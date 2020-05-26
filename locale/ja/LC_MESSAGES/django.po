@@ -1029,7 +1029,7 @@ msgid ""
 "media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 msgstr ""
 "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/"
-"K86SlacCi_c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
+"acD0MO5k_4M\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-"
 "media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 
 #: templates/home/about.html:46
