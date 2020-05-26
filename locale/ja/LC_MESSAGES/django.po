@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-20 20:52+0900\n"
+"POT-Creation-Date: 2020-05-26 16:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -532,11 +532,11 @@ msgstr "中学校"
 msgid "High School"
 msgstr "高校"
 
-#: paw/settings.py:152 paw/settings.py:157
+#: paw/settings.py:142 paw/settings.py:147
 msgid "English"
 msgstr "英語"
 
-#: paw/settings.py:153
+#: paw/settings.py:143
 msgid "Japanese"
 msgstr "日本語"
 
@@ -1013,7 +1013,7 @@ msgid "<div class='hidden' id='about-description'></div>"
 msgstr ""
 "<div class='row'><div class='col-xs-12 page-header-left'>ご挨拶</div></"
 "div><div class='row'><div class='col-xs-12'>初めまして。システム開発者のキー"
-"ファーと申します。現在、相模原市でALTとして勤務 しておりますが、以前はソフト"
+"ファーと申します。現在、白井市でALTとして勤務 しておりますが、以前はソフト"
 "ウェアエンジニアとして、デザインからシステム構築まで 手掛けておりました。これ"
 "までの幅広い経験と知識を活かし、ご利用者様のご要望を把握 し、最適且つ効率的な"
 "スケジュール管理をご提案・ご提供して参ります。</div></div><br/>"
