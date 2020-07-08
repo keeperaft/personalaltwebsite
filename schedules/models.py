@@ -152,3 +152,33 @@ class SectionPeriodType(models.Model):
 
     def __str__(self):
         return " | ".join([str(self.date), self.school_period_type.period_name])
+
+class TemplateSectionPeriod(models.Model):
+    weekday = models.SmallIntegerField(default=0)
+    school_period = models.ForeignKey(SchoolPeriod)
+    section = models.ForeignKey(Section)
+
+    def __str__(self):
+        return " || ".join([str(self.school_period), str(self.section)])
+
+class TemplatePeriodType(models.Model):
+    weekday = models.SmallIntegerField()
+    school_period_type = models.ForeignKey(SchoolPeriodType)
+    school = models.ForeignKey('schoolyears.School', default=None)
+    objects = TemplatePeriodTypeManager()
+
+    def __str__(self):
+        weekday_text = 'Monday'
+        if self.weekday == 1:
+            weekday_text = 'Tuesday'
+        elif self.weekday == 2:
+            weekday_text = 'Wednesday'
+        elif self.weekday == 3:
+            weekday_text = 'Thursday'
+        elif self.weekday == 4:
+            weekday_text = 'Friday'
+        elif self.weekday == 5:
+            weekday_text = 'Saturday'
+        elif self.weekday == 6:
+            weekday_text = 'Sunday'
+        return " || ".join([str(weekday_text), str(self.school_period_type)])

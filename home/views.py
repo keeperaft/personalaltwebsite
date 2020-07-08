@@ -168,6 +168,8 @@ def __add_scheduled_class(school, date, year_level, period_number, section_name)
 
 def reset_database(request):
     # Delete all relevant tables
+    TemplatePeriodType.objects.all().delete()
+    TemplateSectionPeriod.objects.all().delete()
     SchoolPeriodType.objects.all().delete()
     SchoolPeriod.objects.all().delete()
     SchoolSection.objects.all().delete()

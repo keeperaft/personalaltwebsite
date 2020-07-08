@@ -299,3 +299,45 @@ class SectionPeriodManager(models.Manager):
             return period.latest('date')
         else:
             return None
+
+class TemplatePeriodTypeManager(models.Manager):
+    def get_template_info(self, school, day): # day 0 = Monday, day 4 = Friday
+        template_period_type_model = apps.get_model(app_label='schedules', model_name='TemplatePeriodType')
+        school_period_model = apps.get_model(app_label='schedules', model_name='SchoolPeriod')
+        template_period_type = template_period_type_model.objects.filter(weekday=day, school=school).first()
+
+        if template_period_type is None:
+            period_type = PERIOD_TYPE_NORMAL
+            if day == 0:
+                period_type = PERIOD_TYPE_MONDAY
+            elif day == 2:
+                period_type = PERIOD_TYPE_WEDNESDAY
+            school_period_type_model = apps.get_model(app_label='schedules', model_name='SchoolPeriodType')
+            school_period_type = school_period_type_model.objects.filter(school=school, period_type=period_type).first()
+
+            new_period_type = template_period_type_model(
+                weekday=day,
+                school=school,
+                school_period_type=school_period_type
+            )
+            new_period_type.save()
+            template_period_type = new_period_type
+
+        school_periods = school_period_model.objects.filter(school_period_type=template_period_type.school_period_type).order_by('period_number')
+
+        edit_form = SchoolPeriodTypeManager.get_section_period_type_form(self, instance=template_period_type.school_period_type, school=school)
+
+        for period in school_periods:
+            template_section_period_model = apps.get_model(app_label='schedules', model_name='TemplateSectionPeriod')
+            template_section = template_section_period_model.objects.filter(weekday=day, school_period=period).first()
+            period.section_info = None
+            if template_section is not None:
+                period.section_info = template_section
+
+        
+        return {
+            'template_period_type': template_period_type, 
+            'school_periods': school_periods,
+            'weekday_name': ALL_WEEKDAYS[day],
+            'edit_form': edit_form
+        }  
